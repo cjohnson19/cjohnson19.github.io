@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/home/chase/sites/cjohnson19.github.io",
+	"sourceRoot": "/Users/chasejohnson/Sites/cjohnson19.github.io",
 	"sources": [
 		"themes/cactus/assets/scss/style.scss",
 		"themes/cactus/assets/scss/_variables.scss",
