@@ -1,0 +1,24 @@
+{
+    "list": [
+        {
+            "name":"ReachU",
+            "url":"https://www.reachuapp.com/",
+            "desc":"Mobile application developed in Flutter"
+        },
+        {
+            "name":"Any Angle Path Planning in Realtime Environment",
+            "url":"https://github.com/CJohnson19/anyanglesearch/blob/master/anyanglepaper.pdf",
+            "desc":"Comparison of any-angle path planning algorithms"
+        },
+        {
+            "name":"Moss Format",
+            "url":"https://github.com/CJohnson19/moss-fmt",
+            "desc":"A script to quickly format students' Canvas submissions to a uniform format for MOSS."
+        },
+        {
+            "name":"Foodle",
+            "url":"https://github.com/CJohnson19/foodle",
+            "desc":"Android app to track groceries - developed using semi-structured user interviews."
+        }
+    ]
+}
