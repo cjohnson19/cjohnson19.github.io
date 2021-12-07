@@ -1,7 +1,6 @@
 ---
 title: "Polymorphism"
 date: 2021-12-06T20:03:32-06:00
-draft: true
 ---
 
 * Introduction

@@ -1,7 +1,6 @@
 ---
 title: "Functional Language Correctness"
 date: 2021-12-06T18:35:32-06:00
-draft: true
 ---
 
 * Introduction

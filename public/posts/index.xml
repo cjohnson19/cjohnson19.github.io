@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Chase Johnson</title>
-    <link>https://cjohnson19.github.io/</link>
-    <description>Recent content on Chase Johnson</description>
+    <title>Posts on Chase Johnson</title>
+    <link>https://cjohnson19.github.io/posts/</link>
+    <description>Recent content in Posts on Chase Johnson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Dec 2021 20:03:32 -0600</lastBuildDate><atom:link href="https://cjohnson19.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Dec 2021 20:03:32 -0600</lastBuildDate><atom:link href="https://cjohnson19.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Polymorphism</title>
       <link>https://cjohnson19.github.io/posts/polymorphism/</link>
