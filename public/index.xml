@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Mon, 06 Dec 2021 20:03:32 -0600</lastBuildDate><atom:link href="https://cjohnson19.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About Me</title>
+      <link>https://cjohnson19.github.io/about/</link>
+      <pubDate>Mon, 06 Dec 2021 23:03:37 -0600</pubDate>
+      
+      <guid>https://cjohnson19.github.io/about/</guid>
+      <description>I&amp;#39;m pursuing my MS in Computer Science at University of Minnesota where I was awarded my BS in 2020. I have a focus in programming languages and theory. More specifically, my academic interests lie in functional languages, reasoning correctness, and proof assistants.</description>
+    </item>
+    
+    <item>
       <title>Polymorphism</title>
       <link>https://cjohnson19.github.io/posts/polymorphism/</link>
       <pubDate>Mon, 06 Dec 2021 20:03:32 -0600</pubDate>

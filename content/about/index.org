@@ -1,7 +1,6 @@
 ---
 title: "About Me"
 date: 2021-12-06T23:03:37-06:00
-draft: true
 ---
 
 I'm pursuing my MS in Computer Science at [[https://cse.umn.edu/cs][University of Minnesota]] where I was
