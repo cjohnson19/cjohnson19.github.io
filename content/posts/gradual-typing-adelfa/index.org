@@ -1,0 +1,180 @@
+---
+title: "Gradual Typing in Adelfa"
+date: 2021-12-27T13:25:08-06:00
+---
+
+* Introduction
+
+[[https://en.wikipedia.org/wiki/Gradual_typing][Gradual Typing]] is a type system that marries static and dynamic typing. It was
+developed in 2006 by [[https://wphomes.soic.indiana.edu/jsiek/][Jeremy Siek]] and [[http://www.effective-modeling.org/p/walid-taha.html][Walid Taha]]. Dynamic type systems offer
+complete flexibility and agility; whereas static typing offers type-related
+error detection earlier. Gradual typing allows us to declare types as ~dynamic~
+and also specify types. Moreover, we can coerce types to and from ~dynamic~
+throughout its execution.
+
+I won't be going over Gradual Typing too closely, because Professor Siek has [[https://siek.blogspot.com/][his
+very own excellent blog]] you should give a read if you're interested. This blog
+post will focus more on mechanizing some properties of gradual typing in [[http://sparrow.cs.umn.edu/adelfa/index.html][Adelfa]],
+a system I'm currently using as a graduate student. I plan showing more about
+Adelfa in a later post, so I'll just be showing a general thought process
+involved in the construction of these theorems. I'll focus on [[http://scheme2006.cs.uchicago.edu/13-siek.pdf][Gradual Typing for
+Functional Languages]] for this post.
+
+* Syntax of The Language
+
+We elide variables, ground types, constants, etc since they are not of interest
+in any theorems we will mechanize. The paper describes the syntax of \(e \in
+\lambda^{?}_{\rightarrow}\) in section 1. I'll show the paper's description as
+one column and the formulation in Adelfa in the other.
+
+|               | Gradual Typing            | Adelfa                          |
+|---------------+---------------------------+---------------------------------|
+| Type          | \(\tau\)                  | ~ty : type.~                      |
+| Function Type | \(\tau \rightarrow \tau\) | ~arr: {t1: ty}{t2:ty} ty.~        |
+| Expressions   | \(e\)                     | ~tm : type.~                      |
+| Application   | \(e e\)                   | ~app: {tm1: tm}{tm2: tm} tm.~     |
+| Abstraction   | \(\lambda x:\tau . e\)    | ~lam: {ty1:ty}{D: {x:tm} tm} tm.~ |
+
+We also define a few types in Adelfa:
+
+- ~unit~ and ~nat~, essentially placeholders to represent more meaningful types in
+  an actual system.
+- ~dyn~ which will represent the \(?\) / \(\star\) type, standing for dynamic.
+
+Here is the Adelfa section in its entirety:
+#+begin_src
+% gradual-typing.lf
+tm : type.
+ty : type.
+arr : {t1: ty}{t2:ty} ty.
+lam : {ty1: ty}{D: {x:tm} tm} tm.
+app : {t1: tm}{t2: tm} tm.
+
+unit : ty.
+dyn : ty.
+nat : ty.
+#+end_src
+* Type Consistency
+
+For a cast to occur between types, the types must be consistent. Consistency is
+shown through a \(\sim\), so \(\tau_{0} \sim \tau_{1}\) is a relation accepting
+two types. Here are all the rules for consistency as given in the paper:
+
+#+CAPTION: CRefl
+\begin{equation}\label{crefl}
+\tau \sim \tau
+\end{equation}
+
+#+CAPTION: CUnr
+\begin{equation}\label{cunr}
+\tau \sim ?
+\end{equation}
+
+#+CAPTION: CUnl
+\begin{equation}\label{cunl}
+? \sim \tau
+\end{equation}
+
+#+CAPTION: CFun
+\begin{equation}\label{cfun}
+\frac{
+  \sigma_{1} \sim \tau_{1} \quad \sigma_{2} \sim \tau_{2}
+}{
+  \sigma_{1} \rightarrow \sigma_{2} \sim \tau_{1} \rightarrow \tau_{2}
+}
+\end{equation}
+
+These can be encoded into Adelfa by first defining a consistency relation that
+accepts two types, then we will define each rule based on the input types. Any
+conditions that need to be met by the rule can be realized through some
+derivation as seen in the ~consis-fun~ rule.
+
+#+begin_src
+% gradual-typing.lf
+consis : {ty1: ty} {ty2: ty} type.
+consis-refl: {ty1 : ty} consis ty1 ty1.
+consis-dyn-r : {ty1 : ty} consis ty1 dyn.
+consis-dyn-l : {ty1 : ty} consis dyn ty1.
+consis-fun : {sigma1 : ty}{sigma2 : ty}
+             {tau1 : ty}{tau2 : ty}
+             {D1: consis sig1 tau1}
+             {D2: consis sig2 tau2}
+             consis (arr sig1 sig2) (arr tau1 tau2).
+#+end_src
+
+Now that we have the LF signature finished for the consistency relation, we can
+prove properties about it. Let's prove all the points mentioned in
+Proposition 1.
+
+- \(\tau \sim \tau\): the relation is symmetric
+- If \(\sigma \sim \tau\) then \(\tau \sim \sigma\): the relation is commutative.
+- \(\neg (\forall \tau_{1} \tau_{2} \tau_{3} . \tau_{1} \sim \tau_{2} \land
+  \tau_{2} \sim \tau_{3} \longrightarrow \tau_{1} \sim \tau_{3})\): the relation
+  is /not/ transitive.
+
+** Symmetry
+
+This arises very naturally from our ~consis-refl~ rule. So naturally that to prove
+it is essentially unnecessary. Nevertheless, here is the proof.
+
+#+begin_src
+% gradual-typing.ath
+Theorem consis-symm : forall t1,
+  {t1: ty} =>
+  exists D1, {D1: consis t1 t1}.
+intros.
+exists consis-refl t1. search.
+#+end_src
+
+** Commutativity
+
+The only tricky aspect of this proof is applying the inductive hypothesis in the
+case that it is a function type. The other cases are commutative by the \(?\)
+being on one side or having the same type on both.
+
+#+begin_src
+% gradual-typing.ath
+Theorem consis-comm : forall t1 t2 D1,
+  {D1: consis t1 t2} =>
+  exists D2, {D2: consis t2 t1}.
+induction on 1.
+intros.
+case H1.
+apply IH to H6.
+apply IH to H7.
+exists consis-fun tau1 tau2 sig1 sig2 D2 D1. search.
+exists consis-dyn-l t1. search.
+exists consis-dyn-r t2. search.
+exists consis-refl t2. search.
+#+end_src
+
+** Non-transitivity
+
+We don't have the not (\(\neg\)) operator, but that's not a problem. We can prove that it
+doesn't hold in every case by posing an existential that would lead to a false
+assertion. Therefore, we'll formulate the following:
+
+\begin{equation}
+\exists \tau_{1} \tau_2 \tau_3 . \tau_1 \sim \tau_2 \land \tau_2 \sim \tau_3 \implies \tau_1 \sim \tau_3 \implies \bot
+\end{equation}
+
+The transitivity in consistency doesn't work in the case that \(\tau_{2}\) is
+\(?\) and \(\tau_1 \not\equiv \tau_3\). Hence, why we cannot prove this with
+only ~unit~ type.
+
+#+begin_src
+% gradual-typing.ath
+Theorem consis-not-trans : exists t1 t2 t3,
+  {t1: ty} => {t2: ty} => {t3: ty} =>
+  forall D1 D2 D3,
+  {D1: consis t1 t2} /\ {D2: consis t2 t3} =>
+  {D3: consis t1 t3} => false.
+exists unit.
+exists dyn.
+exists nat.
+intros.
+case H5.
+#+end_src
+
+This gives the case of \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
+\not \sim \mathbb{N}\), so case analysis will yield \(\bot\).
