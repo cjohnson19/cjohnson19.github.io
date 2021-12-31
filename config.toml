@@ -1,4 +1,4 @@
-baseURL = 'https://www.chasejohnson.tech/'
+baseURL = 'https://chasejohnson.tech/'
 languageCode = 'en-us'
 title = 'Chase Johnson'
 theme = "cactus"

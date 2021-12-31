@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.chasejohnson.tech/</loc>
+    <loc>https://chasejohnson.tech/</loc>
     <lastmod>2021-12-27T13:25:08-06:00</lastmod>
   </url><url>
-    <loc>https://www.chasejohnson.tech/posts/gradual-typing-adelfa/</loc>
+    <loc>https://chasejohnson.tech/posts/gradual-typing-adelfa/</loc>
     <lastmod>2021-12-27T13:25:08-06:00</lastmod>
   </url><url>
-    <loc>https://www.chasejohnson.tech/posts/</loc>
+    <loc>https://chasejohnson.tech/posts/</loc>
     <lastmod>2021-12-27T13:25:08-06:00</lastmod>
   </url><url>
-    <loc>https://www.chasejohnson.tech/about/</loc>
+    <loc>https://chasejohnson.tech/about/</loc>
     <lastmod>2021-12-06T23:03:37-06:00</lastmod>
   </url><url>
-    <loc>https://www.chasejohnson.tech/posts/polymorphism/</loc>
+    <loc>https://chasejohnson.tech/posts/polymorphism/</loc>
     <lastmod>2021-12-06T20:03:32-06:00</lastmod>
   </url><url>
-    <loc>https://www.chasejohnson.tech/posts/functional-language-correctness/</loc>
+    <loc>https://chasejohnson.tech/posts/functional-language-correctness/</loc>
     <lastmod>2021-12-06T18:35:32-06:00</lastmod>
   </url><url>
-    <loc>https://www.chasejohnson.tech/categories/</loc>
+    <loc>https://chasejohnson.tech/categories/</loc>
   </url><url>
-    <loc>https://www.chasejohnson.tech/tags/</loc>
+    <loc>https://chasejohnson.tech/tags/</loc>
   </url>
 </urlset>
