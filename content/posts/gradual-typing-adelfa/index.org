@@ -27,62 +27,68 @@ in any theorems we will mechanize. The paper describes the syntax of \(e \in
 \lambda^{?}_{\rightarrow}\) in section 1. I'll show the paper's description as
 one column and the formulation in Adelfa in the other.
 
-|               | Gradual Typing            | Adelfa                          |
+|               | Gradual Typing Syntax     | Adelfa Signature                |
 |---------------+---------------------------+---------------------------------|
 | Type          | \(\tau\)                  | ~ty : type.~                      |
 | Function Type | \(\tau \rightarrow \tau\) | ~arr: {t1: ty}{t2:ty} ty.~        |
 | Expressions   | \(e\)                     | ~tm : type.~                      |
-| Application   | \(e e\)                   | ~app: {tm1: tm}{tm2: tm} tm.~     |
+| Application   | \(e \cdot e\)             | ~app: {tm1: tm}{tm2: tm} tm.~     |
 | Abstraction   | \(\lambda x:\tau . e\)    | ~lam: {ty1:ty}{D: {x:tm} tm} tm.~ |
 
-We also define a few types in Adelfa:
+We also define a few extra items in Adelfa:
 
 - ~unit~ and ~nat~, essentially placeholders to represent more meaningful types in
   an actual system.
 - ~dyn~ which will represent the \(?\) / \(\star\) type, standing for dynamic.
+- ~empty~ which will be a term we can use.
+
+We could use this and then define a system to insert the casts like in the
+paper, but I'll only be dealing with the intermediate language of
+\(\lambda^{\langle \tau \rangle}_{\rightarrow}\) for simplicity. Therefore,
+we'll define the cast as well. In the paper this is written as \(\langle \tau
+\rangle e\) where we are casting \(e\) to the target type \(\tau\).
 
 Here is the Adelfa section in its entirety:
 #+begin_src
-% gradual-typing.lf
 tm : type.
 ty : type.
-arr : {t1: ty}{t2:ty} ty.
+arr : {ty1: ty}{ty2:ty} ty.
 lam : {ty1: ty}{D: {x:tm} tm} tm.
 app : {t1: tm}{t2: tm} tm.
+cast : {ty1: ty}{t1: tm} tm.
 
 unit : ty.
 dyn : ty.
 nat : ty.
+empty : tm.
 #+end_src
 * Type Consistency
 
 For a cast to occur between types, the types must be consistent. Consistency is
-shown through a \(\sim\), so \(\tau_{0} \sim \tau_{1}\) is a relation accepting
+shown through a \(\sim\), so \(\tau_{1} \sim \tau_{2}\) is a relation accepting
 two types. Here are all the rules for consistency as given in the paper:
 
-#+CAPTION: CRefl
-\begin{equation}\label{crefl}
-\tau \sim \tau
-\end{equation}
+- CRefl
+  \begin{equation}
+  \tau \sim \tau
+  \end{equation}
+- CUnr
+  \begin{equation}\label{cunr}
+  \tau \sim ?
+  \end{equation}
+- CUnl
+  \begin{equation}\label{cunl}
+  ? \sim \tau
+  \end{equation}
+- CFun
+  \begin{equation}\label{cfun}
+  \frac{
+      \sigma_{1} \sim \tau_{1} \quad \sigma_{2} \sim \tau_{2}
+  }{
+      \sigma_{1} \rightarrow \sigma_{2} \sim \tau_{1} \rightarrow \tau_{2}
+  }
+  \end{equation}
 
-#+CAPTION: CUnr
-\begin{equation}\label{cunr}
-\tau \sim ?
-\end{equation}
-
-#+CAPTION: CUnl
-\begin{equation}\label{cunl}
-? \sim \tau
-\end{equation}
-
-#+CAPTION: CFun
-\begin{equation}\label{cfun}
-\frac{
-  \sigma_{1} \sim \tau_{1} \quad \sigma_{2} \sim \tau_{2}
-}{
-  \sigma_{1} \rightarrow \sigma_{2} \sim \tau_{1} \rightarrow \tau_{2}
-}
-\end{equation}
 
 These can be encoded into Adelfa by first defining a consistency relation that
 accepts two types, then we will define each rule based on the input types. Any
@@ -90,7 +96,6 @@ conditions that need to be met by the rule can be realized through some
 derivation as seen in the ~consis-fun~ rule.
 
 #+begin_src
-% gradual-typing.lf
 consis : {ty1: ty} {ty2: ty} type.
 consis-refl: {ty1 : ty} consis ty1 ty1.
 consis-dyn-r : {ty1 : ty} consis ty1 dyn.
@@ -118,7 +123,6 @@ This arises very naturally from our ~consis-refl~ rule. So naturally that to pro
 it is essentially unnecessary. Nevertheless, here is the proof.
 
 #+begin_src
-% gradual-typing.ath
 Theorem consis-symm : forall t1,
   {t1: ty} =>
   exists D1, {D1: consis t1 t1}.
@@ -133,7 +137,6 @@ case that it is a function type. The other cases are commutative by the \(?\)
 being on one side or having the same type on both.
 
 #+begin_src
-% gradual-typing.ath
 Theorem consis-comm : forall t1 t2 D1,
   {D1: consis t1 t2} =>
   exists D2, {D2: consis t2 t1}.
@@ -163,7 +166,6 @@ The transitivity in consistency doesn't work in the case that \(\tau_{2}\) is
 only ~unit~ type.
 
 #+begin_src
-% gradual-typing.ath
 Theorem consis-not-trans : exists t1 t2 t3,
   {t1: ty} => {t2: ty} => {t3: ty} =>
   forall D1 D2 D3,
@@ -178,3 +180,242 @@ case H5.
 
 This gives the case of \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
 \not \sim \mathbb{N}\), so case analysis will yield \(\bot\).
+
+* Typing Relations
+
+We'll translate Figure 6's typing derivations for \(\lambda^{\langle \tau
+\rangle}_{\rightarrow}\) into Adelfa piece by piece. Just as before, we'll place
+any preconditions of the relation into some derivation necessary for the
+relation to hold.
+
+- Type System
+  \begin{equation}
+  \Gamma \vert \Sigma \vdash e : \tau
+  \end{equation}
+  #+begin_src
+of : {t1: tm}{ty1 : ty} type.
+  #+end_src
+- TLam
+  \begin{equation}
+  \frac{
+  \Gamma (x \mapsto \sigma) \vert \Sigma \vdash e : \tau
+  }{
+  \Gamma \vert \Sigma \vdash \lambda x : \sigma . e : \sigma \rightarrow \tau
+  }
+  \end{equation}
+  #+begin_src
+of-lam : {t1:{x:tm}tm}{ty1:ty}{ty2:ty}
+           {D:{x:tm}{D': of x ty1} of (t1 x) ty2}
+           of (lam ty1 ([x] t1 x)) (arr ty1 ty2).
+  #+end_src
+- TApp
+  \begin{equation}
+  \frac{
+  \Gamma \vert \Sigma \vdash e : \tau \rightarrow \tau^{\prime} \quad \Gamma \vert \Sigma \vdash e_2 : \tau
+  }{
+  \Gamma \vert \Sigma \vdash e_1 e_2 : \tau^{\prime}
+  }
+  \end{equation}
+  #+begin_src
+of-app : {t1: tm}{t2:tm}{ty1: ty}{ty2:ty}
+           {D1: of t1 (arr ty1 ty2)}
+           {D2: of t2 ty1}
+           of (app t1 t2) ty2.
+  #+end_src
+- TCast
+  \begin{equation}
+  \frac{
+  \Gamma \vert \Sigma \vdash e : \sigma \quad \sigma \sim \tau
+  }{
+  \Gamma \vert \Sigma \vdash \langle \tau \rangle e : \tau
+  }
+  \end{equation}
+  #+begin_src
+of-cast : {t1: tm}{ty1: ty}{ty2: ty}
+            {D: consis ty1 ty2}
+            of (cast ty2 t1) ty2.
+  #+end_src
+
+** Context Lemmas & Type Equality
+
+
+To translate this into Adelfa, we need to account for abstraction capturing a
+variable in the context. Adelfa addresses this problem through a context
+schema. In this instance we define it as ~Schema c := {T}(x: tm, y: of x T)~.
+
+We also don't have a built in way to determine type equality, we we'll define
+one. It turns out, equality by reflexivity is sufficient for our needs.
+
+#+begin_src
+ty-eq : {ty1:ty}{ty2:ty} type.
+ty-eq-refl : {ty1:ty} ty-eq ty1 ty1.
+#+end_src
+
+These are not relating directly to gradual typing, but are more properties of
+any typing relation. Firstly, a type in a context is also a type not in a
+context: \(\Gamma \vdash \tau \implies \varnothing \vdash \tau\).
+
+#+begin_src
+Theorem ty-independent : ctx G:c, forall T,
+  {G |- T: ty} => {T: ty}.
+induction on 1.
+intros.
+case H1. search. search. search.
+apply IH to H2.
+apply IH to H3. search.
+#+end_src
+
+Secondly, type equality also doesn't depend on a context: \(\Gamma \vdash \tau
+= \tau^{\prime} \implies \varnothing \vdash \tau = \tau^{\prime}\).
+
+#+begin_src
+Theorem eq-independent : ctx G:c, forall t1 t2 D1,
+  {G |- D1: ty-eq t1 t2} => {D1: ty-eq t1 t2}.
+intros.
+case H1.
+apply ty-independent to H2.
+search.
+#+end_src
+
+** Type Uniqueness
+
+Let's look at Lemma 2.
+
+\begin{equation}
+\Gamma \vert \Sigma \vdash e : \tau \land \Gamma \vert \Sigma \vdash e : \tau^{\prime} \implies \tau = \tau^{\prime}
+\end{equation}
+
+We then translate this into Adelfa as such
+
+#+begin_src
+Theorem ty-uniq-lem : ctx G:c, forall E t1 t2 D1 D2,
+  {G |- t1: ty} => {G |- t2: ty} =>
+  {G |- D1: of E t1} => {G |- D2: of E t2} =>
+  exists D3, {G |- D3: ty-eq t1 t2}.
+induction on 3.
+intros.
+case H3.
+case H4.
+exists ty-eq-refl t2. search.
+case H4.
+apply IH to H7 H11 H8 H12.
+case H13.
+exists ty-eq-refl (arr ty1 t4). search.
+case H4.
+assert {G |- (arr ty1 t1): ty}. search.
+assert {G |- (arr ty2 t2): ty}. search.
+apply IH to H17 H18 H9 H15.
+case H19.
+exists ty-eq-refl t2. search.
+case H4.
+exists ty-eq-refl (t2 n n1). search.
+#+end_src
+
+Which is:
+
+\begin{equation}
+\Gamma \vert \Sigma \vdash e : \tau \land \Gamma \vert \Sigma \vdash e : \tau^{\prime} \implies \Gamma \vert \Sigma \vdash \tau = \tau^{\prime}
+\end{equation}
+
+So, to take the context off of the consequent, we only have to apply our
+equality independent lemma.
+
+#+begin_src
+Theorem ty-uniq : ctx G:c, forall E T1 T2 D1 D2,
+  {G |- T1: ty} => {G |- T2: ty} =>
+  {G |- D1: of E T1} => {G |- D2: of E T2} =>
+  exists D3, {D3: ty-eq T1 T2}.
+intros.
+apply ty-uniq-lem to H1 H2 H3 H4.
+apply eq-independent to H5.
+exists D3.
+search.
+#+end_src
+
+** Preservation
+
+Stated simply, "reduction preserves types" is the principle we want to prove. We
+need a reduction strategy. The paper uses big step semantics, but I'll use small
+step which will display the next step that a term will take. These steps will
+occur until we reach a value. We define values to be:
+
+- Lambdas: \(\lambda x : \tau . e\)
+- Empty: \(\langle \rangle\)
+- Casts: \(\langle \tau \rangle e\)
+
+
+#+begin_src
+value : {t1: tm} type.
+value-lam : {ty1: ty}{D: {x:tm} tm} value (lam ty1 ([x] D x)).
+value-empty: value empty.
+value-cast : {ty1: ty}{t1: tm} value (cast ty1 t1).
+#+end_src
+
+We then have to define how our program will actually execute through the lambda
+terms. I'll use the single step notation of \(e \rightsquigarrow e^{\prime}\) to
+denote that \(e\) reduces to \(e^{\prime}\) in a single step. We define a set of
+reduction rules such that we know the exact reduction step the program will take
+at any moment. For example, if we have two lambda terms \(e_1\) and \(e_2\)
+being applied, \(e_1 \cdot e_2\), then we could reduce the left \(e_{1}
+\rightsquigarrow e_1^{\prime}\) or the right \(e_{2} \rightsquigarrow
+e_2^{\prime}\), or it could be the tricky case that \(e_1\) is of function type
+\(\sigma_1\rightarrow\sigma_2\) and needs to be expanded into a lambda term. We
+solve this issue by using the following order:
+
+1. Reduce the left side until it is a value.
+2. Reduce the right side until it is a value.
+3. Expand the left side into a lambda abstraction.
+
+These are captured in the following definitions:
+
+#+begin_src
+step : {t1: tm}{t2: tm} type.
+step-app-1 : {E1: tm}{E2: tm}{E1': tm}{D: step E1 E1'}
+             step (app E1 E2) (app E1' E2).
+step-app-2 : {E1: tm}{E2: tm}{E2': tm}{D1: step E2 E2'}
+             {D2: value E1}
+             step (app E1 E2) (app E1 E2').
+step-app-beta : {E: {x:tm} tm}{T: ty}{E2:tm}{D1:value E2}
+                step (app (lam T ([x] E x)) E2) (E E2).
+#+end_src
+
+Which captures all \(t1 \rightsquigarrow t2\) relations. The precision in which
+we defined ~step~ will come in handy when we move onto proving progress.
+
+Before we move onto preservation, let's prove a corollary that states values
+cannot take any more steps.
+
+#+begin_src
+Theorem value-no-red : forall E V E' D2,
+ {V: value E} => {D2: step E E'} => false.
+intros.
+case H1.
+case H2.
+case H2.
+case H2.
+#+end_src
+
+This isn't necessary for proving preservation, but is a nice way to confirm our
+internal idea of what a ~value~ is. Looping back to preservation, we can prove
+this without too much difficulty.
+
+#+begin_src
+Theorem preserv : forall E E' T D1 D2,
+  {D1: step E E'} =>
+  {D2: of E T} =>
+  exists E, {E : of E' T}.
+induction on 1.
+intros.
+case H1.
+case H2.
+case H11.
+inst H16 with n2 = E2.
+inst H17 with n3 = D6.
+exists D7 E2 D6. search.
+case H2.
+apply IH to H6 H13.
+exists of-app E1 E2' ty1 T D5 E. search.
+case H2.
+apply IH to H6 H11.
+exists of-app E1' E2 ty1 T E D4. search.
+#+end_src
