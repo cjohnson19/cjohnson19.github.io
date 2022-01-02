@@ -2,7 +2,6 @@ baseURL = 'https://chasejohnson.tech/'
 languageCode = 'en-us'
 title = 'Chase Johnson'
 theme = "cactus"
-disqusShortname = "cjohnson19"
 
 [params]
     description = """\
@@ -17,8 +16,6 @@ disqusShortname = "cjohnson19"
     projectsUrl = "https://github.com/cjohnson19"
     mathjax = true
     showReadTime = true
-    [params.comments]
-        enabled = true
 
 [[params.social]]
     name = "github"
