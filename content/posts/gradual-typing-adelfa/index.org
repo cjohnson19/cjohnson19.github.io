@@ -1,6 +1,6 @@
 ---
 title: "Gradual Typing in Adelfa"
-date: 2021-12-27T13:25:08-06:00
+date: 2022-01-01T13:25:08-06:00
 ---
 
 * Introduction
@@ -40,7 +40,7 @@ We also define a few extra items in Adelfa:
 - ~unit~ and ~nat~, essentially placeholders to represent more meaningful types in
   an actual system.
 - ~dyn~ which will represent the \(?\) / \(\star\) type, standing for dynamic.
-- ~empty~ which will be a term we can use.
+- ~empty~ and ~z~ which will be a terms we can use of type ~unit~ and ~nat~ respectively.
 
 We could use this and then define a system to insert the casts like in the
 paper, but I'll only be dealing with the intermediate language of
@@ -61,6 +61,7 @@ unit : ty.
 dyn : ty.
 nat : ty.
 empty : tm.
+z : tm.
 #+end_src
 * Type Consistency
 
@@ -211,7 +212,7 @@ of-lam : {t1:{x:tm}tm}{ty1:ty}{ty2:ty}
 - TApp
   \begin{equation}
   \frac{
-  \Gamma \vert \Sigma \vdash e : \tau \rightarrow \tau^{\prime} \quad \Gamma \vert \Sigma \vdash e_2 : \tau
+  \Gamma \vert \Sigma \vdash e_{1} : \tau \rightarrow \tau^{\prime} \quad \Gamma \vert \Sigma \vdash e_2 : \tau
   }{
   \Gamma \vert \Sigma \vdash e_1 e_2 : \tau^{\prime}
   }
@@ -232,6 +233,7 @@ of-app : {t1: tm}{t2:tm}{ty1: ty}{ty2:ty}
   \end{equation}
   #+begin_src
 of-cast : {t1: tm}{ty1: ty}{ty2: ty}
+            {D1: of t1 ty2}
             {D: consis ty1 ty2}
             of (cast ty2 t1) ty2.
   #+end_src
@@ -340,15 +342,16 @@ step which will display the next step that a term will take. These steps will
 occur until we reach a value. We define values to be:
 
 - Lambdas: \(\lambda x : \tau . e\)
-- Empty: \(\langle \rangle\)
 - Casts: \(\langle \tau \rangle e\)
-
+- Empty: \(\langle \rangle\)
+- Zero: \(0\)
 
 #+begin_src
 value : {t1: tm} type.
 value-lam : {ty1: ty}{D: {x:tm} tm} value (lam ty1 ([x] D x)).
+value-cast : {t1: tm}{ty1: ty} value (cast ty1 t1).
 value-empty: value empty.
-value-cast : {ty1: ty}{t1: tm} value (cast ty1 t1).
+value-z : value z.
 #+end_src
 
 We then have to define how our program will actually execute through the lambda
@@ -364,7 +367,8 @@ solve this issue by using the following order:
 
 1. Reduce the left side until it is a value.
 2. Reduce the right side until it is a value.
-3. Expand the left side into a lambda abstraction.
+3. If the left side has a cast, we can remove it.
+4. Expand the left side into a lambda abstraction.
 
 These are captured in the following definitions:
 
@@ -377,6 +381,8 @@ step-app-2 : {E1: tm}{E2: tm}{E2': tm}{D1: step E2 E2'}
              step (app E1 E2) (app E1 E2').
 step-app-beta : {E: {x:tm} tm}{T: ty}{E2:tm}{D1:value E2}
                 step (app (lam T ([x] E x)) E2) (E E2).
+step-app-cast: {E1: tm}{E2: tm}{ty1: ty}{ty2: ty}
+                step (app (cast (arr ty1 ty2) E1) E2) (app E1 E2).
 #+end_src
 
 Which captures all \(t1 \rightsquigarrow t2\) relations. The precision in which
@@ -390,6 +396,7 @@ Theorem value-no-red : forall E V E' D2,
  {V: value E} => {D2: step E E'} => false.
 intros.
 case H1.
+case H2.
 case H2.
 case H2.
 case H2.
@@ -418,4 +425,83 @@ exists of-app E1 E2' ty1 T D5 E. search.
 case H2.
 apply IH to H6 H11.
 exists of-app E1' E2 ty1 T E D4. search.
+#+end_src
+
+** Progress
+
+Progress states that when we are evaluating a term, are able to either take a
+step or we have reached a value. Progress and preservation together constitute
+"type-safety" of a system. We've already defined values and steps we can take
+within our language, so proving progress doesn't require too much more
+information.
+
+The only new definitions we need are that of a /canonical/ form. Well typed values
+have to be in a canonical form. When we have reached a point where we have \(e_1
+\cdot e_2\), we want to limit the forms of \(e_1\) to ones where \(e_1\) is a
+cast \(\langle \tau_1 \rightarrow \tau_2 \rangle e_1\) or of function type, and
+can be expanded into a lambda \(e_1 : \tau_1 \rightarrow \tau_2 \Rightarrow
+(\lambda x : \tau_1 . e_1^{\prime}) : \tau_2\). Any other form for \(e_1\) would
+not lead to a well typed term. We want to list all canonical forms:
+
+#+begin_src
+canonical : {t1 : tm} {ty1: ty} type.
+canonical-lam : {t1: {x:tm} tm} {ty1: ty} {ty2: ty}
+                canonical (lam ty1 ([x] t1 x)) (arr ty1 ty2).
+canonical-empty : canonical empty unit.
+canonical-z : canonical z nat.
+canonical-cast : {t1: tm} {ty1 : ty}
+                 canonical (cast ty1 t1) ty1.
+#+end_src
+
+And formulate a theorem about well typed values being canonical:
+
+#+begin_src
+Theorem canonical : forall E T D1 D2,
+  {D1: of E T} =>
+  {D2: value E} => exists D3, {D3: canonical E T}.
+intros.
+case H1.
+case H2.
+exists canonical-cast t1 T. search.
+exists canonical-lam t1 ty1 ty2. search.
+case H2.
+#+end_src
+
+We're now able to prove progress.
+
+#+begin_src
+Theorem progress : forall E D1 ty1,
+  {E: tm} => {D1: of E ty1} =>
+  (exists E' D2, {D2: step E E'} /\ {E' : tm}) \/ (exists D3, {D3: value E}).
+induction on 1.
+intros.
+case H1.
+right.
+exists value-z. search.
+right.
+exists value-empty. search.
+case H2.
+right.
+exists value-cast t1 ty2. search.
+case H2.
+apply IH to H3 H9. case H11. case H11.
+left.
+exists app E' t2.
+exists step-app-1 t1 t2 E' D1.
+split. search. search.
+apply IH to H4 H10. case H12. case H12.
+left.
+exists app t1 E'.
+exists step-app-2 t1 t2 E' D4 D1.
+split. search. search.
+left.
+apply canonical to H9 H11. case H13. case H9.
+exists app t3 t2.
+exists step-app-cast t3 t2 ty2 ty1. split. search. search.
+inst H14 with n = t2.
+exists t3 t2.
+exists step-app-beta t3 ty2 t2 D4. split. search. search.
+right.
+exists value-lam ty2 D.
+search.
 #+end_src

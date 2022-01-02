@@ -20,8 +20,8 @@
  I won&#39;t be going over Gradual Typing too closely, because Professor Siek has his very own excellent blog you should give a read if you&#39;re interested." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chasejohnson.tech/posts/gradual-typing-adelfa/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-12-27T13:25:08-06:00" />
-<meta property="article:modified_time" content="2021-12-27T13:25:08-06:00" />
+<meta property="article:published_time" content="2022-01-01T13:25:08-06:00" />
+<meta property="article:modified_time" content="2022-01-01T13:25:08-06:00" />
 
 
   <meta name="twitter:card" content="summary"/>
@@ -166,7 +166,7 @@
         
         <div class="postdate">
           
-          <time datetime="2021-12-27 13:25:08 -0600 CST" itemprop="datePublished">2021-12-27</time>
+          <time datetime="2022-01-01 13:25:08 -0600 CST" itemprop="datePublished">2022-01-01</time>
           
         </div>
         
@@ -174,7 +174,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          9 minute read
+          12 minute read
         </div>
         
         
@@ -207,6 +207,8 @@
 <li><a href="#headline-9">Type Uniqueness</a>
 </li>
 <li><a href="#headline-10">Preservation</a>
+</li>
+<li><a href="#headline-11">Progress</a>
 </li>
 </ul>
 </li>
@@ -295,7 +297,7 @@ an actual system.</p>
 <p><code>dyn</code> which will represent the \(?\) / \(\star\) type, standing for dynamic.</p>
 </li>
 <li>
-<p><code>empty</code> which will be a term we can use.</p>
+<p><code>empty</code> and <code>z</code> which will be a terms we can use of type <code>unit</code> and <code>nat</code> respectively.</p>
 </li>
 </ul>
 <p>We could use this and then define a system to insert the casts like in the
@@ -316,7 +318,8 @@ cast : {ty1: ty}{t1: tm} tm.
 unit : ty.
 dyn : ty.
 nat : ty.
-empty : tm.</code></pre></div>
+empty : tm.
+z : tm.</code></pre></div>
 </div>
 </div>
 </div>
@@ -509,7 +512,7 @@ relation to hold.</p>
 <p>TApp
 \begin{equation}
 \frac{
-\Gamma \vert \Sigma \vdash e : \tau \rightarrow \tau^{\prime} \quad \Gamma \vert \Sigma \vdash e_2 : \tau
+\Gamma \vert \Sigma \vdash e_{1} : \tau \rightarrow \tau^{\prime} \quad \Gamma \vert \Sigma \vdash e_2 : \tau
 }{
 \Gamma \vert \Sigma \vdash e_1 e_2 : \tau^{\prime}
 }
@@ -532,6 +535,7 @@ relation to hold.</p>
 \end{equation}</p>
 <div class="src src-text">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of-cast : {t1: tm}{ty1: ty}{ty2: ty}
+          {D1: of t1 ty2}
           {D: consis ty1 ty2}
           of (cast ty2 t1) ty2.</code></pre></div>
 </div>
@@ -652,17 +656,21 @@ occur until we reach a value. We define values to be:</p>
 <p>Lambdas: \(\lambda x : \tau . e\)</p>
 </li>
 <li>
+<p>Casts: \(\langle \tau \rangle e\)</p>
+</li>
+<li>
 <p>Empty: \(\langle \rangle\)</p>
 </li>
 <li>
-<p>Casts: \(\langle \tau \rangle e\)</p>
+<p>Zero: \(0\)</p>
 </li>
 </ul>
 <div class="src src-text">
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">value : {t1: tm} type.
 value-lam : {ty1: ty}{D: {x:tm} tm} value (lam ty1 ([x] D x)).
+value-cast : {t1: tm}{ty1: ty} value (cast ty1 t1).
 value-empty: value empty.
-value-cast : {ty1: ty}{t1: tm} value (cast ty1 t1).</code></pre></div>
+value-z : value z.</code></pre></div>
 </div>
 <p>
 We then have to define how our program will actually execute through the lambda
@@ -683,6 +691,9 @@ solve this issue by using the following order:</p>
 <p>Reduce the right side until it is a value.</p>
 </li>
 <li>
+<p>If the left side has a cast, we can remove it.</p>
+</li>
+<li>
 <p>Expand the left side into a lambda abstraction.</p>
 </li>
 </ol>
@@ -695,7 +706,9 @@ step-app-2 : {E1: tm}{E2: tm}{E2&#39;: tm}{D1: step E2 E2&#39;}
              {D2: value E1}
              step (app E1 E2) (app E1 E2&#39;).
 step-app-beta : {E: {x:tm} tm}{T: ty}{E2:tm}{D1:value E2}
-                step (app (lam T ([x] E x)) E2) (E E2).</code></pre></div>
+                step (app (lam T ([x] E x)) E2) (E E2).
+step-app-cast: {E1: tm}{E2: tm}{ty1: ty}{ty2: ty}
+                step (app (cast (arr ty1 ty2) E1) E2) (app E1 E2).</code></pre></div>
 </div>
 <p>
 Which captures all \(t1 \rightsquigarrow t2\) relations. The precision in which
@@ -708,6 +721,7 @@ cannot take any more steps.</p>
  {V: value E} =&gt; {D2: step E E&#39;} =&gt; false.
 intros.
 case H1.
+case H2.
 case H2.
 case H2.
 case H2.</code></pre></div>
@@ -735,6 +749,87 @@ exists of-app E1 E2&#39; ty1 T D5 E. search.
 case H2.
 apply IH to H6 H11.
 exists of-app E1&#39; E2 ty1 T E D4. search.</code></pre></div>
+</div>
+</div>
+</div>
+<div id="outline-container-headline-11" class="outline-3">
+<h3 id="headline-11">
+Progress
+</h3>
+<div id="outline-text-headline-11" class="outline-text-3">
+<p>
+Progress states that when we are evaluating a term, are able to either take a
+step or we have reached a value. Progress and preservation together constitute
+&#34;type-safety&#34; of a system. We&#39;ve already defined values and steps we can take
+within our language, so proving progress doesn&#39;t require too much more
+information.</p>
+<p>
+The only new definitions we need are that of a <em>canonical</em> form. Well typed values
+have to be in a canonical form. When we have reached a point where we have \(e_1
+\cdot e_2\), we want to limit the forms of \(e_1\) to ones where \(e_1\) is a
+cast \(\langle \tau_1 \rightarrow \tau_2 \rangle e_1\) or of function type, and
+can be expanded into a lambda \(e_1 : \tau_1 \rightarrow \tau_2 \Rightarrow
+(\lambda x : \tau_1 . e_1^{\prime}) : \tau_2\). Any other form for \(e_1\) would
+not lead to a well typed term. We want to list all canonical forms:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">canonical : {t1 : tm} {ty1: ty} type.
+canonical-lam : {t1: {x:tm} tm} {ty1: ty} {ty2: ty}
+                canonical (lam ty1 ([x] t1 x)) (arr ty1 ty2).
+canonical-empty : canonical empty unit.
+canonical-z : canonical z nat.
+canonical-cast : {t1: tm} {ty1 : ty}
+                 canonical (cast ty1 t1) ty1.</code></pre></div>
+</div>
+<p>
+And formulate a theorem about well typed values being canonical:</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem canonical : forall E T D1 D2,
+  {D1: of E T} =&gt;
+  {D2: value E} =&gt; exists D3, {D3: canonical E T}.
+intros.
+case H1.
+case H2.
+exists canonical-cast t1 T. search.
+exists canonical-lam t1 ty1 ty2. search.
+case H2.</code></pre></div>
+</div>
+<p>
+We&#39;re now able to prove progress.</p>
+<div class="src src-text">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem progress : forall E D1 ty1,
+  {E: tm} =&gt; {D1: of E ty1} =&gt;
+  (exists E&#39; D2, {D2: step E E&#39;} /\ {E&#39; : tm}) \/ (exists D3, {D3: value E}).
+induction on 1.
+intros.
+case H1.
+right.
+exists value-z. search.
+right.
+exists value-empty. search.
+case H2.
+right.
+exists value-cast t1 ty2. search.
+case H2.
+apply IH to H3 H9. case H11. case H11.
+left.
+exists app E&#39; t2.
+exists step-app-1 t1 t2 E&#39; D1.
+split. search. search.
+apply IH to H4 H10. case H12. case H12.
+left.
+exists app t1 E&#39;.
+exists step-app-2 t1 t2 E&#39; D4 D1.
+split. search. search.
+left.
+apply canonical to H9 H11. case H13. case H9.
+exists app t3 t2.
+exists step-app-cast t3 t2 ty2 ty1. split. search. search.
+inst H14 with n = t2.
+exists t3 t2.
+exists step-app-beta t3 ty2 t2 D4. split. search. search.
+right.
+exists value-lam ty2 D.
+search.</code></pre></div>
 </div>
 </div>
 </div>
@@ -866,7 +961,7 @@ exists of-app E1&#39; E2 ty1 T E D4. search.</code></pre></div>
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2021  Chase Johnson 
+    Copyright  &copy; 2022  Chase Johnson 
   </div>
   <div class="footer-right">
     <nav>

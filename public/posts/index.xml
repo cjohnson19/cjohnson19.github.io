@@ -6,11 +6,11 @@
     <description>Recent content in Posts on Chase Johnson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Dec 2021 13:25:08 -0600</lastBuildDate><atom:link href="https://chasejohnson.tech/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Jan 2022 13:25:08 -0600</lastBuildDate><atom:link href="https://chasejohnson.tech/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gradual Typing in Adelfa</title>
       <link>https://chasejohnson.tech/posts/gradual-typing-adelfa/</link>
-      <pubDate>Mon, 27 Dec 2021 13:25:08 -0600</pubDate>
+      <pubDate>Sat, 01 Jan 2022 13:25:08 -0600</pubDate>
       
       <guid>https://chasejohnson.tech/posts/gradual-typing-adelfa/</guid>
       <description>Introduction   Gradual Typing is a type system that marries static and dynamic typing. It was developed in 2006 by Jeremy Siek and Walid Taha. Dynamic type systems offer complete flexibility and agility; whereas static typing offers type-related error detection earlier. Gradual typing allows us to declare types as dynamic and also specify types. Moreover, we can coerce types to and from dynamic throughout its execution.
