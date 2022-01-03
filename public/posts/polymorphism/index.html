@@ -180,7 +180,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          7 minute read
+          8 minute read
         </div>
         
         
@@ -242,7 +242,29 @@ T\), any operation that is well defined for \(T\) is also well defined for \(S\)
 For example, an interface to implementation class relationship in Java:</p>
 <p><img src="images/tree.png" alt="images/tree.png" title="images/tree.png" /></p>
 <div class="src src-java">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">Tree</span> <span style="color:#ff79c6">{</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">Tree</span> <span style="color:#ff79c6">{</span>
   <span style="color:#8be9fd">boolean</span> isDeciduous<span style="color:#ff79c6">;</span>
   <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">sayBarkColor</span><span style="color:#ff79c6">();</span>
 <span style="color:#ff79c6">}</span>
@@ -259,7 +281,9 @@ For example, an interface to implementation class relationship in Java:</p>
   <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">sayBarkColor</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
     System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Brown&#34;</span><span style="color:#ff79c6">);</span>
   <span style="color:#ff79c6">}</span>
-<span style="color:#ff79c6">}</span></code></pre></div>
+<span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 We define a common <code>interface</code> that all subtypes of <code>Tree</code> types will implement.
@@ -295,18 +319,38 @@ Java and SML terms compared
 <p>
 We define a signature for a <code>Tree</code> similarly:</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">signature</span> Tree = <span style="color:#ff79c6">sig</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">signature</span> Tree = <span style="color:#ff79c6">sig</span>
   <span style="color:#ff79c6">val</span> <span style="color:#8be9fd;font-style:italic">isDeciduous</span> : bool
   <span style="color:#ff79c6">val</span> <span style="color:#8be9fd;font-style:italic">sayBarkColor</span> : unit -&gt; unit
-<span style="color:#ff79c6">end</span></code></pre></div>
+<span style="color:#ff79c6">end</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 And make a <code>Birch</code> structure like:</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">structure</span> Birch : Tree = <span style="color:#ff79c6">struct</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">structure</span> Birch : Tree = <span style="color:#ff79c6">struct</span>
   <span style="color:#ff79c6">val</span> <span style="color:#8be9fd;font-style:italic">isDeciduous</span> = true
   <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">sayBarkColor</span> () = print <span style="color:#f1fa8c">&#34;Birch</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>
-<span style="color:#ff79c6">end</span></code></pre></div>
+<span style="color:#ff79c6">end</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -321,12 +365,24 @@ different operations based on the types. Take for example, addition overloaded
 for various types:</p>
 <p><img src="images/add.png" alt="images/add.png" title="images/add.png" /></p>
 <div class="src src-java">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Adding</span> <span style="color:#ff79c6">{</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Adding</span> <span style="color:#ff79c6">{</span>
   <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">int</span> <span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">int</span> a<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">int</span> b<span style="color:#ff79c6">);</span>
   <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">float</span> <span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span><span style="color:#8be9fd">float</span> a<span style="color:#ff79c6">,</span> <span style="color:#8be9fd">float</span> b<span style="color:#ff79c6">);</span>
   <span style="color:#8be9fd;font-style:italic">static</span> String <span style="color:#50fa7b">add</span><span style="color:#ff79c6">(</span>String a<span style="color:#ff79c6">,</span> String b<span style="color:#ff79c6">);</span>
   <span style="color:#6272a4">// ...
-</span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span></code></pre></div>
+</span><span style="color:#6272a4"></span><span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 As you can see, <code>add</code> can now be used with <code>int</code>, <code>float</code>, or <code>String</code> without needing
@@ -360,7 +416,14 @@ The function type is shown as an arrow in SML, so a function that accepts an <co
 and outputs an <code>int</code> may be written as <code>int -&gt; int</code>. Let&#39;s define a function that
 fulfills this type signature as an example.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">plus_one</span> (n: int) = n + <span style="color:#bd93f9">1</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">plus_one</span> (n: int) = n + <span style="color:#bd93f9">1</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val plus_one = fn : int -&gt; int
@@ -368,7 +431,14 @@ val plus_one = fn : int -&gt; int
 <p>
 We can also let SML infer the type of parameters by leaving out type annotations.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">plus_one</span> n = n + <span style="color:#bd93f9">1</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">plus_one</span> n = n + <span style="color:#bd93f9">1</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val plus_one = fn : int -&gt; int
@@ -379,10 +449,20 @@ list type is all that matters, not the type of a list&#39;s content. So intuitiv
 we shouldn&#39;t have to define a new <code>append</code> for an <code>int list</code> and a <code>bool list</code>. Let&#39;s
 try to define append and see the type that SML gives us for our function.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">append</span> l1 l2 =
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">append</span> l1 l2 =
   <span style="color:#ff79c6">case</span> l1 <span style="color:#ff79c6">of</span>
     [] =&gt; l2
-  | x::xs =&gt; x::(append xs l2)</code></pre></div>
+  | x::xs =&gt; x::(append xs l2)</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val append = fn : &#39;a list -&gt; &#39;a list -&gt; &#39;a list
@@ -401,7 +481,14 @@ elements. Again, we don&#39;t need to know the types of the elements inside the
 tuple. And in this example, it doesn&#39;t matter if the pair has two elements of
 the same type or different.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">swap</span> (a, b) = (b, a)</code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">swap</span> (a, b) = (b, a)</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val swap = fn : &#39;a * &#39;b -&gt; &#39;b * &#39;a
@@ -439,7 +526,69 @@ Java
 <div id="outline-text-headline-6" class="outline-text-3">
 <p><img src="images/java_diagram.png" alt="images/java_diagram.png" title="images/java_diagram.png" /></p>
 <div class="src src-java">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">// Using generics - parametric polymorphism
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#6272a4">// Using generics - parametric polymorphism
 </span><span style="color:#6272a4">// And this &lt;T extends Comparable&lt;? super T&gt;&gt; is subtyping
 </span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">BinarySearchTree</span><span style="color:#ff79c6">&lt;</span>T <span style="color:#8be9fd;font-style:italic">extends</span> Comparable<span style="color:#ff79c6">&lt;?</span> <span style="color:#8be9fd;font-style:italic">super</span> T<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#ff79c6">{</span>
   TreeNode<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;</span> root<span style="color:#ff79c6">;</span>
@@ -496,29 +645,57 @@ Java
     System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">value</span><span style="color:#ff79c6">);</span>
     inorder<span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">right</span><span style="color:#ff79c6">);</span>
   <span style="color:#ff79c6">}</span>
-<span style="color:#ff79c6">}</span></code></pre></div>
+<span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 We specify that the included value must have or extends a class that is
 <code>Comparable</code> so that we may ensure ordering in the tree. But, we need to define
 this class too.</p>
 <div class="src src-java">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">TreeNode</span><span style="color:#ff79c6">&lt;</span>T <span style="color:#8be9fd;font-style:italic">extends</span> Comparable<span style="color:#ff79c6">&lt;?</span> <span style="color:#8be9fd;font-style:italic">super</span> T<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#ff79c6">{</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">TreeNode</span><span style="color:#ff79c6">&lt;</span>T <span style="color:#8be9fd;font-style:italic">extends</span> Comparable<span style="color:#ff79c6">&lt;?</span> <span style="color:#8be9fd;font-style:italic">super</span> T<span style="color:#ff79c6">&gt;&gt;</span> <span style="color:#ff79c6">{</span>
     <span style="color:#8be9fd;font-style:italic">public</span> T value<span style="color:#ff79c6">;</span>
     <span style="color:#8be9fd;font-style:italic">public</span> TreeNode<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;</span> left<span style="color:#ff79c6">,</span> right<span style="color:#ff79c6">;</span>
     <span style="color:#8be9fd;font-style:italic">public</span> TreeNode<span style="color:#ff79c6">&lt;</span>T<span style="color:#ff79c6">&gt;(</span>T value<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
         <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">value</span> <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">;</span>
     <span style="color:#ff79c6">}</span>
-<span style="color:#ff79c6">}</span></code></pre></div>
+<span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class="src src-java">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
     BinarySearchTree<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> bst <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BinarySearchTree<span style="color:#ff79c6">&lt;&gt;();</span>
     bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">);</span>
     bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>5<span style="color:#ff79c6">);</span>
     bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>100<span style="color:#ff79c6">);</span>
     bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">inorder</span><span style="color:#ff79c6">();</span>
-<span style="color:#ff79c6">}</span></code></pre></div>
+<span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 1
@@ -543,7 +720,22 @@ We define a module that implements comparison between its type, similar to how
 <code>Comparable</code> in java works. While we&#39;re at it, let&#39;s define a more informative
 return type for comparison than the signedness of an integer.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">datatype</span> <span style="color:#8be9fd">comparison</span> =
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">datatype</span> <span style="color:#8be9fd">comparison</span> =
     <span style="color:#50fa7b">Less</span>
   | <span style="color:#50fa7b">Equal</span>
   | <span style="color:#50fa7b">Greater</span>
@@ -553,12 +745,44 @@ return type for comparison than the signedness of an integer.</p>
     <span style="color:#ff79c6">type</span> <span style="color:#8be9fd">t</span>
     <span style="color:#ff79c6">val</span> <span style="color:#8be9fd;font-style:italic">compare</span>: t -&gt; t -&gt; comparison
     <span style="color:#ff79c6">val</span> <span style="color:#8be9fd;font-style:italic">printVal</span>: t -&gt; unit
-  <span style="color:#ff79c6">end</span></code></pre></div>
+  <span style="color:#ff79c6">end</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Then we may make the functor and require a parameter for the inner type.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">functor</span> BinarySearchTree (Val: COMPARABLE) =
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">functor</span> BinarySearchTree (Val: COMPARABLE) =
 <span style="color:#ff79c6">struct</span>
 <span style="color:#ff79c6">type</span> <span style="color:#8be9fd">value</span> = Val.t
 <span style="color:#ff79c6">datatype</span> <span style="color:#8be9fd">node</span>
@@ -583,30 +807,61 @@ Then we may make the functor and require a parameter for the inner type.</p>
     <span style="color:#ff79c6">case</span> node <span style="color:#ff79c6">of</span>
         Empty =&gt; ()
       | Node (x, l, r) =&gt; (inorder l; Val.printVal x; inorder r)
-<span style="color:#ff79c6">end</span></code></pre></div>
+<span style="color:#ff79c6">end</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 We need to define a structure that fulfills the signature of <code>COMPARABLE</code>.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">structure</span> IntComp : COMPARABLE = <span style="color:#ff79c6">struct</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">structure</span> IntComp : COMPARABLE = <span style="color:#ff79c6">struct</span>
 <span style="color:#ff79c6">type</span> <span style="color:#8be9fd">t</span> = int
 <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">compare</span> l r =
     <span style="color:#ff79c6">if</span> l &lt; r <span style="color:#ff79c6">then</span> Less
     <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> l &gt; r <span style="color:#ff79c6">then</span> Greater
     <span style="color:#ff79c6">else</span> Equal
 <span style="color:#ff79c6">fun</span> <span style="color:#50fa7b">printVal</span> v = print (Int.toString v ^ <span style="color:#f1fa8c">&#34;</span><span style="color:#f1fa8c">\n</span><span style="color:#f1fa8c">&#34;</span>)
-<span style="color:#ff79c6">end</span></code></pre></div>
+<span style="color:#ff79c6">end</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Then we can pass it into our <code>BinarySearchTree</code> functor.</p>
 <div class="src src-sml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">structure</span> IntBST = BinarySearchTree(IntComp)</code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sml" data-lang="sml"><span style="color:#ff79c6">structure</span> IntBST = BinarySearchTree(IntComp)</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 And now we can use our new binary search tree.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">val</span> my_int_btree <span style="color:#ff79c6">=</span> List.foldl IntBST.insert IntBST.empty <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">,</span>5<span style="color:#ff79c6">,</span>100<span style="color:#ff79c6">]</span>
-<span style="color:#ff79c6">val</span> () <span style="color:#ff79c6">=</span> IntBST.inorder my_int_btree</code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">val</span> my_int_btree <span style="color:#ff79c6">=</span> List.foldl IntBST.insert IntBST.empty <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">,</span>5<span style="color:#ff79c6">,</span>100<span style="color:#ff79c6">]</span>
+<span style="color:#ff79c6">val</span> () <span style="color:#ff79c6">=</span> IntBST.inorder my_int_btree</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 1

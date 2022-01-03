@@ -50,14 +50,14 @@ digraph linked_list {
 
 Custom types can easily replace the notion of a ~struct~.
 #+begin_src ocaml :results verbatim
-type simple_pair = { a: int; b: char; };;
+type simple_pair = { a: int; b: char; }
 #+end_src
 
 #+RESULTS:
 : type simple_pair = { a : int; b : char; }
 
 #+begin_src ocaml :results verbatim :exports both
-let s = { a = 1; b = 'x' };;
+let s = { a = 1; b = 'x' }
 #+end_src
 
 #+RESULTS:
@@ -70,7 +70,7 @@ tree]].
 #+begin_src ocaml :results verbatim
 type int_btree =
   | Leaf of int
-  | Node of int * int_btree * int_btree;;
+  | Node of int * int_btree * int_btree
 #+end_src
 
 #+RESULTS:
@@ -91,7 +91,7 @@ digraph tree {
 with:
 
 #+begin_src ocaml :exports both
-let my_tree = Node(2, Leaf(1), Leaf(3));;
+let my_tree = Node(2, Leaf(1), Leaf(3))
 #+end_src
 
 #+RESULTS:
@@ -106,22 +106,22 @@ if our tree is empty.
 #+begin_src ocaml :exports code
 let rec is_leaf t =
   match t with
-    Leaf -> true
-  | Node (v,left,right) -> false;;
+  | Leaf -> true
+  | Node (v,left,right) -> false
 #+end_src
 
 #+RESULTS:
 : <fun>
 
 #+begin_src ocaml :exports both
-let empty_example = is_leaf Leaf(1);;
+let empty_example = is_leaf Leaf(1)
 #+end_src
 
 #+RESULTS:
 : true
 
 #+begin_src ocaml :exports both
-let other_example = is_leaf (Node(1, Leaf(2), Leaf(3)));;
+let other_example = is_leaf (Node(1, Leaf(2), Leaf(3)))
 #+end_src
 
 #+RESULTS:
@@ -136,8 +136,8 @@ function implemented by default in these languages called ~map~.
 #+begin_src ocaml :exports code
 let rec map f l =
   match l with
-    [] -> []
-  | h::tl -> (f h)::(map f tl);;
+  | [] -> []
+  | h::tl -> (f h)::(map f tl)
 #+end_src
 
 #+RESULTS:
@@ -145,15 +145,16 @@ let rec map f l =
 
 Now, we can pass a function into ~map~.
 
-#+begin_src ocaml :exports code
-let add_one a = a + 1;;
+#+begin_src ocaml :exports both
+let add_one a = a + 1
+let a = add_one 5
 #+end_src
 
 #+RESULTS:
-: <fun>
+: 6
 
 #+begin_src ocaml :exports both :results value verbatim
-let map_example = map add_one [1; 2; 3];;
+let map_example = map add_one [1; 2; 3]
 #+end_src
 
 #+RESULTS:
@@ -193,7 +194,7 @@ solve the maximum array problem, we define a recursive solution.
 let rec max_list l =
   match l with
   | [x] -> x
-  | h::tl -> max h (max_list tl);;
+  | h::tl -> max h (max_list tl)
 #+end_src
 
 We use the built in ~max~ function which takes two parameters and returns the
@@ -300,23 +301,23 @@ represents failure to produce a value.
 #+begin_src ocaml :results silent
 let rec option_max_list l =
   match l with
-    [] -> None
+  | [] -> None
   | [x] -> Some x
-  | h::tl -> Some (max h (Option.get (option_max_list tl)));;
+  | h::tl -> Some (max h (Option.get (option_max_list tl)))
 #+end_src
 
 #+RESULTS:
 : val option_max_list : 'a list -> 'a option = <fun>
 
 #+begin_src ocaml :exports both :results text
-let empty_max = option_max_list [];;
+let empty_max = option_max_list []
 #+end_src
 
 #+RESULTS:
 : None
 
 #+begin_src ocaml :exports both :results text
-let some_max = option_max_list [1;2;3;4];;
+let some_max = option_max_list [1;2;3;4]
 #+end_src
 
 #+RESULTS:

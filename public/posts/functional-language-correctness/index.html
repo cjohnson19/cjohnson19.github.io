@@ -176,7 +176,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          7 minute read
+          8 minute read
         </div>
         
         
@@ -279,13 +279,27 @@ list:</p>
 <p>
 Custom types can easily replace the notion of a <code>struct</code>.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">type</span> simple_pair <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> a<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">;</span> b<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">char</span><span style="color:#ff79c6">;</span> <span style="color:#ff79c6">};;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">type</span> simple_pair <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> a<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">int</span><span style="color:#ff79c6">;</span> b<span style="color:#ff79c6">:</span> <span style="color:#8be9fd">char</span><span style="color:#ff79c6">;</span> <span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 type simple_pair = { a : int; b : char; }
 </pre>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> s <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> a <span style="color:#ff79c6">=</span> 1<span style="color:#ff79c6">;</span> b <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;x&#39;</span> <span style="color:#ff79c6">};;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> s <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">{</span> a <span style="color:#ff79c6">=</span> 1<span style="color:#ff79c6">;</span> b <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#39;x&#39;</span> <span style="color:#ff79c6">}</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val s : simple_pair = {a = 1; b = &#39;x&#39;}
@@ -295,9 +309,18 @@ Custom types can also be defined to represent disjoint sets of items (otherwise
 known as variant records). This can be very useful for concepts link a <a href="https://en.wikipedia.org/wiki/Binary_tree">binary
 tree</a>.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">type</span> int_btree <span style="color:#ff79c6">=</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">type</span> int_btree <span style="color:#ff79c6">=</span>
   <span style="color:#ff79c6">|</span> <span style="color:#50fa7b">Leaf</span> <span style="color:#ff79c6">of</span> <span style="color:#8be9fd">int</span>
-  <span style="color:#ff79c6">|</span> <span style="color:#50fa7b">Node</span> <span style="color:#ff79c6">of</span> <span style="color:#8be9fd">int</span> <span style="color:#ff79c6">*</span> int_btree <span style="color:#ff79c6">*</span> int_btree<span style="color:#ff79c6">;;</span></code></pre></div>
+  <span style="color:#ff79c6">|</span> <span style="color:#50fa7b">Node</span> <span style="color:#ff79c6">of</span> <span style="color:#8be9fd">int</span> <span style="color:#ff79c6">*</span> int_btree <span style="color:#ff79c6">*</span> int_btree</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 type int_btree = Leaf of int | Node of int * int_btree * int_btree
@@ -308,7 +331,14 @@ Let&#39;s define the binary tree:</p>
 <p>
 with:</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> my_tree <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Node</span><span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">,</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">),</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>3<span style="color:#ff79c6">));;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> my_tree <span style="color:#ff79c6">=</span> <span style="color:#50fa7b">Node</span><span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">,</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">),</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>3<span style="color:#ff79c6">))</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 Node (2, Leaf 1, Leaf 3)
@@ -325,19 +355,43 @@ especially powerful when used in conjunction with OCaml&#39;s type system, such 
 our previously defined binary tree. Suppose we want a simple function to check
 if our tree is empty.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> is_leaf t <span style="color:#ff79c6">=</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> is_leaf t <span style="color:#ff79c6">=</span>
   <span style="color:#ff79c6">match</span> t <span style="color:#ff79c6">with</span>
-    <span style="color:#50fa7b">Leaf</span> <span style="color:#ff79c6">-&gt;</span> true
-  <span style="color:#ff79c6">|</span> <span style="color:#50fa7b">Node</span> <span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">,</span>left<span style="color:#ff79c6">,</span>right<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> false<span style="color:#ff79c6">;;</span></code></pre></div>
+  <span style="color:#ff79c6">|</span> <span style="color:#50fa7b">Leaf</span> <span style="color:#ff79c6">-&gt;</span> true
+  <span style="color:#ff79c6">|</span> <span style="color:#50fa7b">Node</span> <span style="color:#ff79c6">(</span>v<span style="color:#ff79c6">,</span>left<span style="color:#ff79c6">,</span>right<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">-&gt;</span> false</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> empty_example <span style="color:#ff79c6">=</span> is_leaf <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">);;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> empty_example <span style="color:#ff79c6">=</span> is_leaf <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">)</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 true
 </pre>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> other_example <span style="color:#ff79c6">=</span> is_leaf <span style="color:#ff79c6">(</span><span style="color:#50fa7b">Node</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">,</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">),</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>3<span style="color:#ff79c6">)));;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> other_example <span style="color:#ff79c6">=</span> is_leaf <span style="color:#ff79c6">(</span><span style="color:#50fa7b">Node</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">,</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>2<span style="color:#ff79c6">),</span> <span style="color:#50fa7b">Leaf</span><span style="color:#ff79c6">(</span>3<span style="color:#ff79c6">)))</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 false
@@ -355,18 +409,47 @@ function implemented by default in these languages called <code>map</code>.</p>
 <p>
 <code>map</code> will take a function, <code>f</code>, and a list, <code>l</code>, applying <code>f</code> to every element in <code>l</code>.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> map f l <span style="color:#ff79c6">=</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> map f l <span style="color:#ff79c6">=</span>
   <span style="color:#ff79c6">match</span> l <span style="color:#ff79c6">with</span>
-    [] <span style="color:#ff79c6">-&gt;</span> []
-  <span style="color:#ff79c6">|</span> h<span style="color:#ff79c6">::</span>tl <span style="color:#ff79c6">-&gt;</span> <span style="color:#ff79c6">(</span>f h<span style="color:#ff79c6">)::(</span>map f tl<span style="color:#ff79c6">);;</span></code></pre></div>
+  <span style="color:#ff79c6">|</span> [] <span style="color:#ff79c6">-&gt;</span> []
+  <span style="color:#ff79c6">|</span> h<span style="color:#ff79c6">::</span>tl <span style="color:#ff79c6">-&gt;</span> <span style="color:#ff79c6">(</span>f h<span style="color:#ff79c6">)::(</span>map f tl<span style="color:#ff79c6">)</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Now, we can pass a function into <code>map</code>.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> add_one a <span style="color:#ff79c6">=</span> a <span style="color:#ff79c6">+</span> 1<span style="color:#ff79c6">;;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> add_one a <span style="color:#ff79c6">=</span> a <span style="color:#ff79c6">+</span> 1
+<span style="color:#ff79c6">let</span> a <span style="color:#ff79c6">=</span> add_one 5</code></pre></td></tr></table>
 </div>
+</div>
+</div>
+<pre class="example">
+6
+</pre>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> map_example <span style="color:#ff79c6">=</span> map add_one <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">;</span> 2<span style="color:#ff79c6">;</span> 3<span style="color:#ff79c6">];;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> map_example <span style="color:#ff79c6">=</span> map add_one <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">;</span> 2<span style="color:#ff79c6">;</span> 3<span style="color:#ff79c6">]</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val map_example : int list = [2; 3; 4]
@@ -395,7 +478,20 @@ performed in a specific order to obtain a desired result stored state. To solve
 our problem, we initialize a location in memory to hold the maximum of every
 subarray until this subarray is the entirety of <code>A</code>.</p>
 <div class="src src-c">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">max_arr</span>(<span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> arr, <span style="color:#8be9fd">int</span> n) {
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">max_arr</span>(<span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> arr, <span style="color:#8be9fd">int</span> n) {
     <span style="color:#8be9fd">int</span> max <span style="color:#ff79c6">=</span> arr[<span style="color:#bd93f9">0</span>];
     <span style="color:#ff79c6">while</span>(i <span style="color:#ff79c6">!=</span> n) {
         <span style="color:#ff79c6">if</span> (arr[i] <span style="color:#ff79c6">&gt;</span> max)
@@ -403,7 +499,9 @@ subarray until this subarray is the entirety of <code>A</code>.</p>
         i <span style="color:#ff79c6">+=</span> <span style="color:#bd93f9">1</span>;
     }
     <span style="color:#ff79c6">return</span> max;
-}</code></pre></div>
+}</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 If I were to ask you to write this program you would likely come up with the
@@ -419,10 +517,20 @@ Functional
 Instead of modifying internal state, we map values in the mathematical sense. To
 solve the maximum array problem, we define a recursive solution.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> max_list l <span style="color:#ff79c6">=</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> max_list l <span style="color:#ff79c6">=</span>
   <span style="color:#ff79c6">match</span> l <span style="color:#ff79c6">with</span>
   <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">[</span>x<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-&gt;</span> x
-  <span style="color:#ff79c6">|</span> h<span style="color:#ff79c6">::</span>tl <span style="color:#ff79c6">-&gt;</span> max h <span style="color:#ff79c6">(</span>max_list tl<span style="color:#ff79c6">);;</span></code></pre></div>
+  <span style="color:#ff79c6">|</span> h<span style="color:#ff79c6">::</span>tl <span style="color:#ff79c6">-&gt;</span> max h <span style="color:#ff79c6">(</span>max_list tl<span style="color:#ff79c6">)</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 We use the built in <code>max</code> function which takes two parameters and returns the
@@ -464,7 +572,28 @@ variation of induction. If this works for the base case (an array of a single
 element) and we prove that it works for any arbitrary \(k\) to \(k+1\), then we
 have proven it works for all cases.</p>
 <div class="src src-c">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">max_arr</span>(<span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> arr, <span style="color:#8be9fd">int</span> n) {
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">max_arr</span>(<span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> arr, <span style="color:#8be9fd">int</span> n) {
     <span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
     <span style="color:#8be9fd">int</span> max <span style="color:#ff79c6">=</span> arr[<span style="color:#bd93f9">0</span>];
     <span style="color:#6272a4">// max is the maximum of subarray arr[0..0]
@@ -480,7 +609,9 @@ have proven it works for all cases.</p>
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// i = n (from while loop condition)
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// therefore, max is the maximum value of arr[0..n-1]
 </span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> max;
-}</code></pre></div>
+}</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 This process is cumbersome and unwieldy for most industries and applications. Instead,
@@ -493,7 +624,30 @@ very complex. How do we address it? Well, there are a couple of possibilities.
 Given we are working in C, a fairly common solution is to return <code>null</code> or a value
 outside of the expected range.</p>
 <div class="src src-c">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">max_arr</span>(<span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> arr, <span style="color:#8be9fd">int</span> n) {
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#8be9fd">int</span> <span style="color:#50fa7b">max_arr</span>(<span style="color:#8be9fd">int</span><span style="color:#ff79c6">*</span> arr, <span style="color:#8be9fd">int</span> n) {
     <span style="color:#ff79c6">if</span> (n <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span>)
         <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">NULL</span>;
     <span style="color:#8be9fd">int</span> i <span style="color:#ff79c6">=</span> <span style="color:#bd93f9">1</span>;
@@ -511,7 +665,9 @@ outside of the expected range.</p>
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// i = n (from while loop condition)
 </span><span style="color:#6272a4"></span>    <span style="color:#6272a4">// therefore, max is the maximum value of arr[0..n-1]
 </span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">return</span> max;
-}</code></pre></div>
+}</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 But when functions call this, how do they know it may return <code>NULL</code>? There may be
@@ -538,23 +694,48 @@ OCaml address this by adding in an <code>option</code> type. This allows a funct
 conditionally returning a value. <code>Some</code> represents an actual value, whereas <code>None</code>
 represents failure to produce a value.</p>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> option_max_list l <span style="color:#ff79c6">=</span>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> <span style="color:#ff79c6">rec</span> option_max_list l <span style="color:#ff79c6">=</span>
   <span style="color:#ff79c6">match</span> l <span style="color:#ff79c6">with</span>
-    [] <span style="color:#ff79c6">-&gt;</span> <span style="color:#50fa7b">None</span>
+  <span style="color:#ff79c6">|</span> [] <span style="color:#ff79c6">-&gt;</span> <span style="color:#50fa7b">None</span>
   <span style="color:#ff79c6">|</span> <span style="color:#ff79c6">[</span>x<span style="color:#ff79c6">]</span> <span style="color:#ff79c6">-&gt;</span> <span style="color:#50fa7b">Some</span> x
-  <span style="color:#ff79c6">|</span> h<span style="color:#ff79c6">::</span>tl <span style="color:#ff79c6">-&gt;</span> <span style="color:#50fa7b">Some</span> <span style="color:#ff79c6">(</span>max h <span style="color:#ff79c6">(</span>Option.get <span style="color:#ff79c6">(</span>option_max_list tl<span style="color:#ff79c6">)));;</span></code></pre></div>
+  <span style="color:#ff79c6">|</span> h<span style="color:#ff79c6">::</span>tl <span style="color:#ff79c6">-&gt;</span> <span style="color:#50fa7b">Some</span> <span style="color:#ff79c6">(</span>max h <span style="color:#ff79c6">(</span>Option.get <span style="color:#ff79c6">(</span>option_max_list tl<span style="color:#ff79c6">)))</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 val option_max_list : &#39;a list -&gt; &#39;a option = &lt;fun&gt;
 </pre>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> empty_max <span style="color:#ff79c6">=</span> option_max_list []<span style="color:#ff79c6">;;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> empty_max <span style="color:#ff79c6">=</span> option_max_list []</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 None
 </pre>
 <div class="src src-ocaml">
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> some_max <span style="color:#ff79c6">=</span> option_max_list <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">;</span>2<span style="color:#ff79c6">;</span>3<span style="color:#ff79c6">;</span>4<span style="color:#ff79c6">];;</span></code></pre></div>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ocaml" data-lang="ocaml"><span style="color:#ff79c6">let</span> some_max <span style="color:#ff79c6">=</span> option_max_list <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">;</span>2<span style="color:#ff79c6">;</span>3<span style="color:#ff79c6">;</span>4<span style="color:#ff79c6">]</span></code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <pre class="example">
 Some 4
