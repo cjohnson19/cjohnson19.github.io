@@ -154,13 +154,13 @@ Gradual Typing in Adelfa
 <ul>
 <li><a href=#headline-8>Context Lemmas & Type Equality</a>
 </li>
+</ul>
+</li>
 <li><a href=#headline-9>Type Uniqueness</a>
 </li>
 <li><a href=#headline-10>Preservation</a>
 </li>
 <li><a href=#headline-11>Progress</a>
-</li>
-</ul>
 </li>
 </ul>
 </nav>
@@ -489,6 +489,34 @@ relation to hold.</p>
 </div>
 </li>
 </ul>
+<p>In addition the the typing derivations listed in the paper, we have to add ones
+for the new terms <code>empty</code> and <code>z</code> that we've derived.</p>
+<ul>
+<li>
+<p>Empty
+\begin{equation}
+\frac{}
+{
+\Gamma \vert \Sigma \vdash \langle \rangle : ()
+}
+\end{equation}</p>
+<div class="src src-text">
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-empty : of empty unit.</code></pre></div>
+</div>
+</li>
+<li>
+<p>z
+\begin{equation}
+\frac{}
+{
+\Gamma \vert \Sigma \vdash 0 : \mathbb{N}
+}
+\end{equation}</p>
+<div class="src src-text">
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-z : of z nat.</code></pre></div>
+</div>
+</li>
+</ul>
 <div id=outline-container-headline-8 class=outline-3>
 <h3 id=headline-8>
 Context Lemmas & Type Equality
@@ -531,11 +559,13 @@ search.</code></pre></div>
 </div>
 </div>
 </div>
-<div id=outline-container-headline-9 class=outline-3>
-<h3 id=headline-9>
+</div>
+</div>
+<div id=outline-container-headline-9 class=outline-2>
+<h2 id=headline-9>
 Type Uniqueness
-</h3>
-<div id=outline-text-headline-9 class=outline-text-3>
+</h2>
+<div id=outline-text-headline-9 class=outline-text-2>
 <p>
 Let's look at Lemma 2.</p>
 <p>
@@ -589,11 +619,11 @@ search.</code></pre></div>
 </div>
 </div>
 </div>
-<div id=outline-container-headline-10 class=outline-3>
-<h3 id=headline-10>
+<div id=outline-container-headline-10 class=outline-2>
+<h2 id=headline-10>
 Preservation
-</h3>
-<div id=outline-text-headline-10 class=outline-text-3>
+</h2>
+<div id=outline-text-headline-10 class=outline-text-2>
 <p>
 Stated simply, "reduction preserves types" is the principle we want to prove. We
 need a reduction strategy. The paper uses big step semantics, but I'll use small
@@ -700,11 +730,11 @@ exists of-app E1&#39; E2 ty1 T E D4. search.</code></pre></div>
 </div>
 </div>
 </div>
-<div id=outline-container-headline-11 class=outline-3>
-<h3 id=headline-11>
+<div id=outline-container-headline-11 class=outline-2>
+<h2 id=headline-11>
 Progress
-</h3>
-<div id=outline-text-headline-11 class=outline-text-3>
+</h2>
+<div id=outline-text-headline-11 class=outline-text-2>
 <p>
 Progress states that when we are evaluating a term, are able to either take a
 step or we have reached a value. Progress and preservation together constitute
@@ -736,6 +766,8 @@ And formulate a theorem about well typed values being canonical:</p>
   {D2: value E} =&gt; exists D3, {D3: canonical E T}.
 intros.
 case H1.
+exists canonical-z. search.
+exists canonical-empty. search.
 case H2.
 exists canonical-cast t1 T. search.
 exists canonical-lam t1 ty1 ty2. search.
@@ -778,8 +810,6 @@ exists step-app-beta t3 ty2 t2 D4. split. search. search.
 right.
 exists value-lam ty2 D.
 search.</code></pre></div>
-</div>
-</div>
 </div>
 </div>
 </div>
