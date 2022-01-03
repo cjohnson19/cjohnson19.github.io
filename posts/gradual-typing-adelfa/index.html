@@ -129,7 +129,7 @@ Gradual Typing in Adelfa
 </div>
 <div class=article-read-time>
 <i class="far fa-clock"></i>
-12 minute read
+13 minute read
 </div>
 </div>
 </header>
@@ -256,7 +256,23 @@ we'll define the cast as well. In the paper this is written as \(\langle \tau
 <p>
 Here is the Adelfa section in its entirety:</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>tm : type.
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>tm : type.
 ty : type.
 arr : {ty1: ty}{ty2:ty} ty.
 lam : {ty1: ty}{D: {x:tm} tm} tm.
@@ -267,7 +283,9 @@ unit : ty.
 dyn : ty.
 nat : ty.
 empty : tm.
-z : tm.</code></pre></div>
+z : tm.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -316,7 +334,20 @@ accepts two types, then we will define each rule based on the input types. Any
 conditions that need to be met by the rule can be realized through some
 derivation as seen in the <code>consis-fun</code> rule.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>consis : {ty1: ty} {ty2: ty} type.
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>consis : {ty1: ty} {ty2: ty} type.
 consis-refl: {ty1 : ty} consis ty1 ty1.
 consis-dyn-r : {ty1 : ty} consis ty1 dyn.
 consis-dyn-l : {ty1 : ty} consis dyn ty1.
@@ -324,7 +355,9 @@ consis-fun : {sigma1 : ty}{sigma2 : ty}
              {tau1 : ty}{tau2 : ty}
              {D1: consis sig1 tau1}
              {D2: consis sig2 tau2}
-             consis (arr sig1 sig2) (arr tau1 tau2).</code></pre></div>
+             consis (arr sig1 sig2) (arr tau1 tau2).</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Now that we have the LF signature finished for the consistency relation, we can
@@ -352,11 +385,22 @@ Symmetry
 This arises very naturally from our <code>consis-refl</code> rule. So naturally that to prove
 it is essentially unnecessary. Nevertheless, here is the proof.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem consis-symm : forall t1,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem consis-symm : forall t1,
   {t1: ty} =&gt;
   exists D1, {D1: consis t1 t1}.
 intros.
-exists consis-refl t1. search.</code></pre></div>
+exists consis-refl t1. search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -370,7 +414,23 @@ The only tricky aspect of this proof is applying the inductive hypothesis in the
 case that it is a function type. The other cases are commutative by the \(?\)
 being on one side or having the same type on both.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem consis-comm : forall t1 t2 D1,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem consis-comm : forall t1 t2 D1,
   {D1: consis t1 t2} =&gt;
   exists D2, {D2: consis t2 t1}.
 induction on 1.
@@ -381,7 +441,9 @@ apply IH to H7.
 exists consis-fun tau1 tau2 sig1 sig2 D2 D1. search.
 exists consis-dyn-l t1. search.
 exists consis-dyn-r t2. search.
-exists consis-refl t2. search.</code></pre></div>
+exists consis-refl t2. search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -403,7 +465,21 @@ The transitivity in consistency doesn't work in the case that \(\tau_{2}\) is
 \(?\) and \(\tau_1 \not\equiv \tau_3\). Hence, why we cannot prove this with
 only <code>unit</code> type.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem consis-not-trans : exists t1 t2 t3,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem consis-not-trans : exists t1 t2 t3,
   {t1: ty} =&gt; {t2: ty} =&gt; {t3: ty} =&gt;
   forall D1 D2 D3,
   {D1: consis t1 t2} /\ {D2: consis t2 t3} =&gt;
@@ -412,7 +488,9 @@ exists unit.
 exists dyn.
 exists nat.
 intros.
-case H5.</code></pre></div>
+case H5.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 This gives the case of \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
@@ -438,7 +516,14 @@ relation to hold.</p>
 \Gamma \vert \Sigma \vdash e : \tau
 \end{equation}</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of : {t1: tm}{ty1 : ty} type.</code></pre></div>
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of : {t1: tm}{ty1 : ty} type.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -451,9 +536,18 @@ relation to hold.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-lam : {t1:{x:tm}tm}{ty1:ty}{ty2:ty}
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-lam : {t1:{x:tm}tm}{ty1:ty}{ty2:ty}
          {D:{x:tm}{D&#39;: of x ty1} of (t1 x) ty2}
-         of (lam ty1 ([x] t1 x)) (arr ty1 ty2).</code></pre></div>
+         of (lam ty1 ([x] t1 x)) (arr ty1 ty2).</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -466,10 +560,20 @@ relation to hold.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-app : {t1: tm}{t2:tm}{ty1: ty}{ty2:ty}
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-app : {t1: tm}{t2:tm}{ty1: ty}{ty2:ty}
          {D1: of t1 (arr ty1 ty2)}
          {D2: of t2 ty1}
-         of (app t1 t2) ty2.</code></pre></div>
+         of (app t1 t2) ty2.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -482,10 +586,20 @@ relation to hold.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-cast : {t1: tm}{ty1: ty}{ty2: ty}
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-cast : {t1: tm}{ty1: ty}{ty2: ty}
           {D1: of t1 ty2}
           {D: consis ty1 ty2}
-          of (cast ty2 t1) ty2.</code></pre></div>
+          of (cast ty2 t1) ty2.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </li>
 </ul>
@@ -501,7 +615,14 @@ for the new terms <code>empty</code> and <code>z</code> that we've derived.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-empty : of empty unit.</code></pre></div>
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-empty : of empty unit.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </li>
 <li>
@@ -513,7 +634,14 @@ for the new terms <code>empty</code> and <code>z</code> that we've derived.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-z : of z nat.</code></pre></div>
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>of-z : of z nat.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </li>
 </ul>
@@ -530,32 +658,65 @@ schema. In this instance we define it as <code>Schema c := {T}(x: tm, y: of x T)
 We also don't have a built in way to determine type equality, we we'll define
 one. It turns out, equality by reflexivity is sufficient for our needs.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>ty-eq : {ty1:ty}{ty2:ty} type.
-ty-eq-refl : {ty1:ty} ty-eq ty1 ty1.</code></pre></div>
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>ty-eq : {ty1:ty}{ty2:ty} type.
+ty-eq-refl : {ty1:ty} ty-eq ty1 ty1.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 These are not relating directly to gradual typing, but are more properties of
 any typing relation. Firstly, a type in a context is also a type not in a
 context: \(\Gamma \vdash \tau \implies \varnothing \vdash \tau\).</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem ty-independent : ctx G:c, forall T,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem ty-independent : ctx G:c, forall T,
   {G |- T: ty} =&gt; {T: ty}.
 induction on 1.
 intros.
 case H1. search. search. search.
 apply IH to H2.
-apply IH to H3. search.</code></pre></div>
+apply IH to H3. search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Secondly, type equality also doesn't depend on a context: \(\Gamma \vdash \tau
 = \tau^{\prime} \implies \varnothing \vdash \tau = \tau^{\prime}\).</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem eq-independent : ctx G:c, forall t1 t2 D1,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem eq-independent : ctx G:c, forall t1 t2 D1,
   {G |- D1: ty-eq t1 t2} =&gt; {D1: ty-eq t1 t2}.
 intros.
 case H1.
 apply ty-independent to H2.
-search.</code></pre></div>
+search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -575,7 +736,32 @@ Let's look at Lemma 2.</p>
 <p>
 We then translate this into Adelfa as such</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem ty-uniq-lem : ctx G:c, forall E t1 t2 D1 D2,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem ty-uniq-lem : ctx G:c, forall E t1 t2 D1 D2,
   {G |- t1: ty} =&gt; {G |- t2: ty} =&gt;
   {G |- D1: of E t1} =&gt; {G |- D2: of E t2} =&gt;
   exists D3, {G |- D3: ty-eq t1 t2}.
@@ -595,7 +781,9 @@ apply IH to H17 H18 H9 H15.
 case H19.
 exists ty-eq-refl t2. search.
 case H4.
-exists ty-eq-refl (t2 n n1). search.</code></pre></div>
+exists ty-eq-refl (t2 n n1). search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Which is:</p>
@@ -607,7 +795,20 @@ Which is:</p>
 So, to take the context off of the consequent, we only have to apply our
 equality independent lemma.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem ty-uniq : ctx G:c, forall E T1 T2 D1 D2,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem ty-uniq : ctx G:c, forall E T1 T2 D1 D2,
   {G |- T1: ty} =&gt; {G |- T2: ty} =&gt;
   {G |- D1: of E T1} =&gt; {G |- D2: of E T2} =&gt;
   exists D3, {D3: ty-eq T1 T2}.
@@ -615,7 +816,9 @@ intros.
 apply ty-uniq-lem to H1 H2 H3 H4.
 apply eq-independent to H5.
 exists D3.
-search.</code></pre></div>
+search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -644,11 +847,22 @@ occur until we reach a value. We define values to be:</p>
 </li>
 </ul>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>value : {t1: tm} type.
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>value : {t1: tm} type.
 value-lam : {ty1: ty}{D: {x:tm} tm} value (lam ty1 ([x] D x)).
 value-cast : {t1: tm}{ty1: ty} value (cast ty1 t1).
 value-empty: value empty.
-value-z : value z.</code></pre></div>
+value-z : value z.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 We then have to define how our program will actually execute through the lambda
@@ -677,7 +891,21 @@ solve this issue by using the following order:</p>
 </ol>
 <p>These are captured in the following definitions:</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>step : {t1: tm}{t2: tm} type.
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>step : {t1: tm}{t2: tm} type.
 step-app-1 : {E1: tm}{E2: tm}{E1&#39;: tm}{D: step E1 E1&#39;}
              step (app E1 E2) (app E1&#39; E2).
 step-app-2 : {E1: tm}{E2: tm}{E2&#39;: tm}{D1: step E2 E2&#39;}
@@ -686,7 +914,9 @@ step-app-2 : {E1: tm}{E2: tm}{E2&#39;: tm}{D1: step E2 E2&#39;}
 step-app-beta : {E: {x:tm} tm}{T: ty}{E2:tm}{D1:value E2}
                 step (app (lam T ([x] E x)) E2) (E E2).
 step-app-cast: {E1: tm}{E2: tm}{ty1: ty}{ty2: ty}
-                step (app (cast (arr ty1 ty2) E1) E2) (app E1 E2).</code></pre></div>
+                step (app (cast (arr ty1 ty2) E1) E2) (app E1 E2).</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 Which captures all \(t1 \rightsquigarrow t2\) relations. The precision in which
@@ -695,21 +925,57 @@ we defined <code>step</code> will come in handy when we move onto proving progre
 Before we move onto preservation, let's prove a corollary that states values
 cannot take any more steps.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem value-no-red : forall E V E&#39; D2,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">8
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem value-no-red : forall E V E&#39; D2,
  {V: value E} =&gt; {D2: step E E&#39;} =&gt; false.
 intros.
 case H1.
 case H2.
 case H2.
 case H2.
-case H2.</code></pre></div>
+case H2.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 This isn't necessary for proving preservation, but is a nice way to confirm our
 internal idea of what a <code>value</code> is. Looping back to preservation, we can prove
 this without too much difficulty.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem preserv : forall E E&#39; T D1 D2,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem preserv : forall E E&#39; T D1 D2,
   {D1: step E E&#39;} =&gt;
   {D2: of E T} =&gt;
   exists E, {E : of E&#39; T}.
@@ -726,7 +992,9 @@ apply IH to H6 H13.
 exists of-app E1 E2&#39; ty1 T D5 E. search.
 case H2.
 apply IH to H6 H11.
-exists of-app E1&#39; E2 ty1 T E D4. search.</code></pre></div>
+exists of-app E1&#39; E2 ty1 T E D4. search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -750,18 +1018,46 @@ can be expanded into a lambda \(e_1 : \tau_1 \rightarrow \tau_2 \Rightarrow
 (\lambda x : \tau_1 . e_1^{\prime}) : \tau_2\). Any other form for \(e_1\) would
 not lead to a well typed term. We want to list all canonical forms:</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>canonical : {t1 : tm} {ty1: ty} type.
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">7
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>canonical : {t1 : tm} {ty1: ty} type.
 canonical-lam : {t1: {x:tm} tm} {ty1: ty} {ty2: ty}
                 canonical (lam ty1 ([x] t1 x)) (arr ty1 ty2).
 canonical-empty : canonical empty unit.
 canonical-z : canonical z nat.
 canonical-cast : {t1: tm} {ty1 : ty}
-                 canonical (cast ty1 t1) ty1.</code></pre></div>
+                 canonical (cast ty1 t1) ty1.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 And formulate a theorem about well typed values being canonical:</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem canonical : forall E T D1 D2,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem canonical : forall E T D1 D2,
   {D1: of E T} =&gt;
   {D2: value E} =&gt; exists D3, {D3: canonical E T}.
 intros.
@@ -771,12 +1067,52 @@ exists canonical-empty. search.
 case H2.
 exists canonical-cast t1 T. search.
 exists canonical-lam t1 ty1 ty2. search.
-case H2.</code></pre></div>
+case H2.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 <p>
 We're now able to prove progress.</p>
 <div class="src src-text">
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem progress : forall E D1 ty1,
+<div class=highlight><div style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
+<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span></code></pre></td>
+<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
+<pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-text data-lang=text>Theorem progress : forall E D1 ty1,
   {E: tm} =&gt; {D1: of E ty1} =&gt;
   (exists E&#39; D2, {D2: step E E&#39;} /\ {E&#39; : tm}) \/ (exists D3, {D3: value E}).
 induction on 1.
@@ -809,7 +1145,9 @@ exists t3 t2.
 exists step-app-beta t3 ty2 t2 D4. split. search. search.
 right.
 exists value-lam ty2 D.
-search.</code></pre></div>
+search.</code></pre></td></tr></table>
+</div>
+</div>
 </div>
 </div>
 </div>
