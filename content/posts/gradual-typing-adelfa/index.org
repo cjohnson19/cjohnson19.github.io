@@ -238,6 +238,29 @@ of-cast : {t1: tm}{ty1: ty}{ty2: ty}
             of (cast ty2 t1) ty2.
   #+end_src
 
+In addition the the typing derivations listed in the paper, we have to add ones
+for the new terms ~empty~ and ~z~ that we've derived.
+
+- Empty
+  \begin{equation}
+  \frac{}
+  {
+    \Gamma \vert \Sigma \vdash \langle \rangle : ()
+  }
+  \end{equation}
+  #+begin_src
+of-empty : of empty unit.
+  #+end_src
+- z
+  \begin{equation}
+  \frac{}
+  {
+    \Gamma \vert \Sigma \vdash 0 : \mathbb{N}
+  }
+  \end{equation}
+  #+begin_src
+of-z : of z nat.
+  #+end_src
 ** Context Lemmas & Type Equality
 
 
@@ -279,7 +302,7 @@ apply ty-independent to H2.
 search.
 #+end_src
 
-** Type Uniqueness
+* Type Uniqueness
 
 Let's look at Lemma 2.
 
@@ -334,7 +357,7 @@ exists D3.
 search.
 #+end_src
 
-** Preservation
+* Preservation
 
 Stated simply, "reduction preserves types" is the principle we want to prove. We
 need a reduction strategy. The paper uses big step semantics, but I'll use small
@@ -427,7 +450,7 @@ apply IH to H6 H11.
 exists of-app E1' E2 ty1 T E D4. search.
 #+end_src
 
-** Progress
+* Progress
 
 Progress states that when we are evaluating a term, are able to either take a
 step or we have reached a value. Progress and preservation together constitute
@@ -461,6 +484,8 @@ Theorem canonical : forall E T D1 D2,
   {D2: value E} => exists D3, {D3: canonical E T}.
 intros.
 case H1.
+exists canonical-z. search.
+exists canonical-empty. search.
 case H2.
 exists canonical-cast t1 T. search.
 exists canonical-lam t1 ty1 ty2. search.
