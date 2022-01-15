@@ -164,7 +164,7 @@ assertion. Therefore, we'll formulate the following:
 
 The transitivity in consistency doesn't work in the case that \(\tau_{2}\) is
 \(?\) and \(\tau_1 \not\equiv \tau_3\). Hence, why we cannot prove this with
-only ~unit~ type.
+only ~unit~ type constructively.
 
 #+begin_src
 Theorem consis-not-trans : exists t1 t2 t3,
@@ -179,8 +179,11 @@ intros.
 case H5.
 #+end_src
 
-This gives the case of \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
-\not \sim \mathbb{N}\), so case analysis will yield \(\bot\).
+We have to be careful about this theorem in particular. We could similarly prove
+false in this situation if \(\tau_{1} \not\sim \tau_{2}\) or \(\tau_2 \not\sim
+\tau_{3}\). In our case, \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
+\not \sim \mathbb{N}\), so case analysis will yield \(\bot\) but only because
+\(\tau_1 \not \sim \tau_3\) - and we've shown the property that we'd like to.
 
 * Typing Relations
 

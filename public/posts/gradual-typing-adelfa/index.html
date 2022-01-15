@@ -289,16 +289,10 @@ one column and the formulation in Adelfa in the other.</p>
 <p>
 We also define a few extra items in Adelfa:</p>
 <ul>
-<li>
-<p><code>unit</code> and <code>nat</code>, essentially placeholders to represent more meaningful types in
-an actual system.</p>
-</li>
-<li>
-<p><code>dyn</code> which will represent the \(?\) / \(\star\) type, standing for dynamic.</p>
-</li>
-<li>
-<p><code>empty</code> and <code>z</code> which will be a terms we can use of type <code>unit</code> and <code>nat</code> respectively.</p>
-</li>
+<li><code>unit</code> and <code>nat</code>, essentially placeholders to represent more meaningful types in
+an actual system.</li>
+<li><code>dyn</code> which will represent the \(?\) / \(\star\) type, standing for dynamic.</li>
+<li><code>empty</code> and <code>z</code> which will be a terms we can use of type <code>unit</code> and <code>nat</code> respectively.</li>
 </ul>
 <p>We could use this and then define a system to insert the casts like in the
 paper, but I&#39;ll only be dealing with the intermediate language of
@@ -351,34 +345,26 @@ For a cast to occur between types, the types must be consistent. Consistency is
 shown through a \(\sim\), so \(\tau_{1} \sim \tau_{2}\) is a relation accepting
 two types. Here are all the rules for consistency as given in the paper:</p>
 <ul>
-<li>
-<p>CRefl
+<li>CRefl
 \begin{equation}
 \tau \sim \tau
-\end{equation}</p>
-</li>
-<li>
-<p>CUnr
+\end{equation}</li>
+<li>CUnr
 \begin{equation}\label{cunr}
 \tau \sim ?
-\end{equation}</p>
-</li>
-<li>
-<p>CUnl
+\end{equation}</li>
+<li>CUnl
 \begin{equation}\label{cunl}
 ? \sim \tau
-\end{equation}</p>
-</li>
-<li>
-<p>CFun
+\end{equation}</li>
+<li>CFun
 \begin{equation}\label{cfun}
 \frac{
     \sigma_{1} \sim \tau_{1} \quad \sigma_{2} \sim \tau_{2}
 }{
     \sigma_{1} \rightarrow \sigma_{2} \sim \tau_{1} \rightarrow \tau_{2}
 }
-\end{equation}</p>
-</li>
+\end{equation}</li>
 </ul>
 <p>
 These can be encoded into Adelfa by first defining a consistency relation that
@@ -416,17 +402,11 @@ Now that we have the LF signature finished for the consistency relation, we can
 prove properties about it. Let&#39;s prove all the points mentioned in
 Proposition 1.</p>
 <ul>
-<li>
-<p>\(\tau \sim \tau\): the relation is symmetric</p>
-</li>
-<li>
-<p>If \(\sigma \sim \tau\) then \(\tau \sim \sigma\): the relation is commutative.</p>
-</li>
-<li>
-<p>\(\neg (\forall \tau_{1} \tau_{2} \tau_{3} . \tau_{1} \sim \tau_{2} \land
+<li>\(\tau \sim \tau\): the relation is symmetric</li>
+<li>If \(\sigma \sim \tau\) then \(\tau \sim \sigma\): the relation is commutative.</li>
+<li>\(\neg (\forall \tau_{1} \tau_{2} \tau_{3} . \tau_{1} \sim \tau_{2} \land
 \tau_{2} \sim \tau_{3} \longrightarrow \tau_{1} \sim \tau_{3})\): the relation
-is <em>not</em> transitive.</p>
-</li>
+is <em>not</em> transitive.</li>
 </ul>
 <div id="outline-container-headline-4" class="outline-3">
 <h3 id="headline-4">
@@ -515,7 +495,7 @@ assertion. Therefore, we&#39;ll formulate the following:</p>
 <p>
 The transitivity in consistency doesn&#39;t work in the case that \(\tau_{2}\) is
 \(?\) and \(\tau_1 \not\equiv \tau_3\). Hence, why we cannot prove this with
-only <code>unit</code> type.</p>
+only <code>unit</code> type constructively.</p>
 <div class="src src-text">
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -545,8 +525,11 @@ case H5.</code></pre></td></tr></table>
 </div>
 </div>
 <p>
-This gives the case of \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
-\not \sim \mathbb{N}\), so case analysis will yield \(\bot\).</p>
+We have to be careful about this theorem in particular. We could similarly prove
+false in this situation if \(\tau_{1} \not\sim \tau_{2}\) or \(\tau_2 \not\sim
+\tau_{3}\). In our case, \(() \sim ?\) and \(? \sim \mathbb{N}\), and clearly \(()
+\not \sim \mathbb{N}\), so case analysis will yield \(\bot\) but only because
+\(\tau_1 \not \sim \tau_3\) - and we&#39;ve shown the property that we&#39;d like to.</p>
 </div>
 </div>
 </div>
@@ -885,18 +868,10 @@ need a reduction strategy. The paper uses big step semantics, but I&#39;ll use s
 step which will display the next step that a term will take. These steps will
 occur until we reach a value. We define values to be:</p>
 <ul>
-<li>
-<p>Lambdas: \(\lambda x : \tau . e\)</p>
-</li>
-<li>
-<p>Casts: \(\langle \tau \rangle e\)</p>
-</li>
-<li>
-<p>Empty: \(\langle \rangle\)</p>
-</li>
-<li>
-<p>Zero: \(0\)</p>
-</li>
+<li>Lambdas: \(\lambda x : \tau . e\)</li>
+<li>Casts: \(\langle \tau \rangle e\)</li>
+<li>Empty: \(\langle \rangle\)</li>
+<li>Zero: \(0\)</li>
 </ul>
 <div class="src src-text">
 <div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
@@ -928,18 +903,10 @@ e_2^{\prime}\), or it could be the tricky case that \(e_1\) is of function type
 \(\sigma_1\rightarrow\sigma_2\) and needs to be expanded into a lambda term. We
 solve this issue by using the following order:</p>
 <ol>
-<li>
-<p>Reduce the left side until it is a value.</p>
-</li>
-<li>
-<p>Reduce the right side until it is a value.</p>
-</li>
-<li>
-<p>If the left side has a cast, we can remove it.</p>
-</li>
-<li>
-<p>Expand the left side into a lambda abstraction.</p>
-</li>
+<li>Reduce the left side until it is a value.</li>
+<li>Reduce the right side until it is a value.</li>
+<li>If the left side has a cast, we can remove it.</li>
+<li>Expand the left side into a lambda abstraction.</li>
 </ol>
 <p>These are captured in the following definitions:</p>
 <div class="src src-text">
