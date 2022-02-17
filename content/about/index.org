@@ -3,7 +3,7 @@ title: "About Me"
 date: 2021-12-06T23:03:37-06:00
 ---
 
-I'm pursuing my MS in Computer Science at [[https://cse.umn.edu/cs][University of Minnesota]] where I was
+I'm pursuing my PhD in Computer Science at [[https://cse.umn.edu/cs][University of Minnesota]] where I was
 awarded my BS in 2020. I have a focus in programming languages and theory. More
 specifically, my academic interests lie in functional languages, reasoning
 correctness, and proof assistants.

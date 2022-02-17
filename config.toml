@@ -5,7 +5,7 @@ theme = "cactus"
 
 [params]
     description = """\
-    Welcome to my blog! I'm a Computer Science MS student at the University of \
+    Welcome to my blog! I'm a Computer Science PhD student at the University of \
     Minnesota with a particular interest in programming languages."""
     mainSection = "posts"
     mainSectionTitle = "Blog"
