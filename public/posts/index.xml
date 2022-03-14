@@ -14,7 +14,7 @@
       
       <guid>https://chasejohnson.tech/posts/gradual-typing-adelfa/</guid>
       <description>Introduction   Gradual Typing is a type system that marries static and dynamic typing. It was developed in 2006 by Jeremy Siek and Walid Taha. Dynamic type systems offer complete flexibility and agility; whereas static typing offers type-related error detection earlier. Gradual typing allows us to declare types as dynamic and also specify types. Moreover, we can coerce types to and from dynamic throughout its execution.
- I won&amp;#39;t be going over Gradual Typing too closely, because Professor Siek has his very own excellent blog you should give a read if you&amp;#39;re interested.</description>
+ I won&amp;#39;t be going over Gradual Typing too closely, because Professor Siek has his own blog you should give a read if you&amp;#39;re interested.</description>
     </item>
     
     <item>
@@ -33,7 +33,7 @@
       <pubDate>Mon, 06 Dec 2021 18:35:32 -0600</pubDate>
       
       <guid>https://chasejohnson.tech/posts/functional-language-correctness/</guid>
-      <description>Introduction  What is Functional Programming?  If you already have experienced functional programming, or feel like you have a good grasp on its concepts, feel free to jump ahead to the next sub section on OCaml. This will only be review for you.
+      <description>Introduction  What is Functional Programming?  If you already have experienced functional programming, or feel like you have a good grasp on its concepts, feel free to jump ahead to the next subsection on OCaml. This will only be review for you.
  If you have never heard of functional programming, take some time to ponder on the design and don&amp;#39;t jump to conclusions.
  My first time using a functional language was much like my first time programming recursively.</description>
     </item>

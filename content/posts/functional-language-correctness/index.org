@@ -7,7 +7,7 @@ date: 2021-12-06T18:35:32-06:00
 ** What is Functional Programming?
 If you already have experienced functional programming, or feel like you have a
 good grasp on its concepts, feel free to jump ahead to the [[{{<relref
-"#headline-3">}}][next sub section on OCaml]]. This will only be review for you.
+"#headline-3">}}][next subsection on OCaml]]. This will only be review for you.
 
 If you have never heard of functional programming, take some time to ponder on
 the design and don't jump to conclusions.
@@ -197,7 +197,7 @@ let rec max_list l =
   | h::tl -> max h (max_list tl)
 #+end_src
 
-We use the built in ~max~ function which takes two parameters and returns the
+We use the built-in ~max~ function which takes two parameters and returns the
 larger of the two, applying it to the list recursively.
 
 But let's inspect what OCaml tells us about our new function.
@@ -216,7 +216,7 @@ A fact that we overlooked in our imperative version is immediately evident in
 our functional version.
 * Reasoning Correctness & Edge Cases
 Suppose this function ~max~ is more complex. Your team lead notices that this
-function's correctness is vital to your customers so they want to ensure it is
+function's correctness is vital to your customers, so they want to ensure it is
 correct. It's so vital, there should some sort of formal proof.
 
 ** Imperative
@@ -254,7 +254,7 @@ something like the array of length 0 case could remain overlooked.
 Let's say the empty array case is caught -- it likely would be given ~max~ is not
 very complex. How do we address it? Well, there are a couple of possibilities.
 Given we are working in C, a fairly common solution is to return ~null~ or a value
-outside of the expected range.
+outside the expected range.
 
 #+name: Maximum of Array in C with Loop Invariant
 #+begin_src C :results none :exports code
@@ -294,7 +294,7 @@ has the base case: a singular element list, and the recursive case: the maximum
 of a list is the maximum of the first element and the maximum of the remainder
 of the list. That is, if we didn't have this empty case.
 
-OCaml address this by adding in an ~option~ type. This allows a function to
+OCaml addresses this by adding in an ~option~ type. This allows a function to
 conditionally returning a value. ~Some~ represents an actual value, whereas ~None~
 represents failure to produce a value.
 

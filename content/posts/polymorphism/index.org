@@ -13,7 +13,7 @@ I'll be using [[https://www.java.com/en/][Java]] and [[https://www.smlnj.org/][S
 polymorphism. Java is unique in its [[https://insights.stackoverflow.com/survey/2020#technology-programming-scripting-and-markup-languages-all-respondents][pervasiveness]] throughout professional
 developers and its usage as a language to teach OOP. SML is unique in that it
 is a successor to one of the first implementations of a form of polymorphism
-different than the one used in OOP languages. More on that later.
+different from the one used in OOP languages. More on that later.
 * Subtyping
 Subtyping Polymorphism is the form you're likely familiar with and were first
 introduced to. If we define a type \(T\) with a subtype \(S\), denoted as \(S <:
@@ -55,7 +55,7 @@ class Pine implements Tree {
 #+end_src
 
 We define a common ~interface~ that all subtypes of ~Tree~ types will implement.
-These new subtypes types, ~Birch~ and ~Pine~ will have their own implementation of
+These new subtypes, ~Birch~ and ~Pine,~ will have their own implementation of
 ~isDeciduous~ and ~sayBarkColor~. In doing this, we don't have to know exactly what
 tree we are working with, only that it is a subtype of ~Tree~ (as long as we
 remain within the common operations of the interface type).
@@ -88,7 +88,7 @@ end
 
 * Ad Hoc Polymorphism
 Ad Hoc polymorphism is also likely something you're familiar with. Operations
-that are defined for many different types may /overload/ the function and perform
+that are defined for different types may /overload/ the function and perform
 different operations based on the types. Take for example, addition overloaded
 for various types:
 
@@ -120,7 +120,7 @@ As you can see, ~add~ can now be used with ~int~, ~float~, or ~String~ without n
 to specify which ~add~ function to use.
 
 As a programmer, we have to do more leg work to define the body of each
-implementation of this interface, but it's easier map a function's semantics to
+implementation of this interface, but it's easier to map a function's semantics to
 a name mentally. Without ad hoc polymorphism, you may see function names like
 ~add_ints~ and ~add_floats~.
 
@@ -135,7 +135,7 @@ Parametric polymorphism allows us to write a single function that applies to all
 types. In SML, the "all types" concept is displayed through a letter prepended
 with an apostrophe (commonly called "tick") such as ~'a~ or ~'b~. Further, ~'a~ must
 be the same type as all other ~'a~ in the function, but could be either the same
-or different than ~'b~.
+or different from ~'b~.
 
 The function type is shown as an arrow in SML, so a function that accepts an ~int~
 and outputs an ~int~ may be written as ~int -> int~. Let's define a function that
@@ -158,7 +158,7 @@ fun plus_one n = n + 1
 : val plus_one = fn : int -> int
 
 Now that we have this in mind, consider the case of appending two lists. The
-list type is all that matters, not the type of a list's content. So intuitively
+list type is all that matters, not the type of list's content. So intuitively
 we shouldn't have to define a new ~append~ for an ~int list~ and a ~bool list~. Let's
 try to define append and see the type that SML gives us for our function.
 

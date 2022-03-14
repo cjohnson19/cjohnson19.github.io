@@ -17,7 +17,7 @@
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Gradual Typing in Adelfa" />
 <meta property="og:description" content="Introduction   Gradual Typing is a type system that marries static and dynamic typing. It was developed in 2006 by Jeremy Siek and Walid Taha. Dynamic type systems offer complete flexibility and agility; whereas static typing offers type-related error detection earlier. Gradual typing allows us to declare types as dynamic and also specify types. Moreover, we can coerce types to and from dynamic throughout its execution.
- I won&#39;t be going over Gradual Typing too closely, because Professor Siek has his very own excellent blog you should give a read if you&#39;re interested." />
+ I won&#39;t be going over Gradual Typing too closely, because Professor Siek has his own blog you should give a read if you&#39;re interested." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chasejohnson.tech/posts/gradual-typing-adelfa/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-01T13:25:08-06:00" />
@@ -27,7 +27,7 @@
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Gradual Typing in Adelfa"/>
 <meta name="twitter:description" content="Introduction   Gradual Typing is a type system that marries static and dynamic typing. It was developed in 2006 by Jeremy Siek and Walid Taha. Dynamic type systems offer complete flexibility and agility; whereas static typing offers type-related error detection earlier. Gradual typing allows us to declare types as dynamic and also specify types. Moreover, we can coerce types to and from dynamic throughout its execution.
- I won&#39;t be going over Gradual Typing too closely, because Professor Siek has his very own excellent blog you should give a read if you&#39;re interested."/>
+ I won&#39;t be going over Gradual Typing too closely, because Professor Siek has his own blog you should give a read if you&#39;re interested."/>
 
   
   
@@ -140,7 +140,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fgradual-typing-adelfa%2f&name=Gradual%20Typing%20in%20Adelfa&description=Introduction%20%20%20Gradual%20Typing%20is%20a%20type%20system%20that%20marries%20static%20and%20dynamic%20typing.%20It%20was%20developed%20in%202006%20by%20Jeremy%20Siek%20and%20Walid%20Taha.%20Dynamic%20type%20systems%20offer%20complete%20flexibility%20and%20agility%3b%20whereas%20static%20typing%20offers%20type-related%20error%20detection%20earlier.%20Gradual%20typing%20allows%20us%20to%20declare%20types%20as%20dynamic%20and%20also%20specify%20types.%20Moreover%2c%20we%20can%20coerce%20types%20to%20and%20from%20dynamic%20throughout%20its%20execution.%0a%20I%20won%26%2339%3bt%20be%20going%20over%20Gradual%20Typing%20too%20closely%2c%20because%20Professor%20Siek%20has%20his%20very%20own%20excellent%20blog%20you%20should%20give%20a%20read%20if%20you%26%2339%3bre%20interested." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fgradual-typing-adelfa%2f&name=Gradual%20Typing%20in%20Adelfa&description=Introduction%20%20%20Gradual%20Typing%20is%20a%20type%20system%20that%20marries%20static%20and%20dynamic%20typing.%20It%20was%20developed%20in%202006%20by%20Jeremy%20Siek%20and%20Walid%20Taha.%20Dynamic%20type%20systems%20offer%20complete%20flexibility%20and%20agility%3b%20whereas%20static%20typing%20offers%20type-related%20error%20detection%20earlier.%20Gradual%20typing%20allows%20us%20to%20declare%20types%20as%20dynamic%20and%20also%20specify%20types.%20Moreover%2c%20we%20can%20coerce%20types%20to%20and%20from%20dynamic%20throughout%20its%20execution.%0a%20I%20won%26%2339%3bt%20be%20going%20over%20Gradual%20Typing%20too%20closely%2c%20because%20Professor%20Siek%20has%20his%20own%20blog%20you%20should%20give%20a%20read%20if%20you%26%2339%3bre%20interested." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -232,12 +232,12 @@ and also specify types. Moreover, we can coerce types to and from <code>dynamic<
 throughout its execution.</p>
 <p>
 I won&#39;t be going over Gradual Typing too closely, because Professor Siek has <a href="https://siek.blogspot.com/">his
-very own excellent blog</a> you should give a read if you&#39;re interested. This blog
-post will focus more on mechanizing some properties of gradual typing in <a href="http://sparrow.cs.umn.edu/adelfa/index.html">Adelfa</a>,
-a system I&#39;m currently using as a graduate student. I plan showing more about
-Adelfa in a later post, so I&#39;ll just be showing a general thought process
-involved in the construction of these theorems. I&#39;ll focus on <a href="http://scheme2006.cs.uchicago.edu/13-siek.pdf">Gradual Typing for
-Functional Languages</a> for this post.</p>
+own blog</a> you should give a read if you&#39;re interested. This blog post will focus
+more on mechanizing some properties of gradual typing in <a href="http://sparrow.cs.umn.edu/adelfa/index.html">Adelfa</a>, a system I&#39;m
+currently using as a graduate student. I plan showing more about Adelfa in a
+later post, so I&#39;ll just be showing a general thought process involved in the
+construction of these theorems. I&#39;ll focus on <a href="http://scheme2006.cs.uchicago.edu/13-siek.pdf">Gradual Typing for Functional
+Languages</a> for this post.</p>
 </div>
 </div>
 <div id="outline-container-headline-2" class="outline-2">
@@ -246,7 +246,7 @@ Syntax of The Language
 </h2>
 <div id="outline-text-headline-2" class="outline-text-2">
 <p>
-We elide variables, ground types, constants, etc since they are not of interest
+We elide variables, ground types, constants, etc. since they are not of interest
 in any theorems we will mechanize. The paper describes the syntax of \(e \in
 \lambda^{?}_{\rightarrow}\) in section 1. I&#39;ll show the paper&#39;s description as
 one column and the formulation in Adelfa in the other.</p>
@@ -292,7 +292,7 @@ We also define a few extra items in Adelfa:</p>
 <li><code>unit</code> and <code>nat</code>, essentially placeholders to represent more meaningful types in
 an actual system.</li>
 <li><code>dyn</code> which will represent the \(?\) / \(\star\) type, standing for dynamic.</li>
-<li><code>empty</code> and <code>z</code> which will be a terms we can use of type <code>unit</code> and <code>nat</code> respectively.</li>
+<li><code>empty</code> and <code>z</code> which will be terms we can use of type <code>unit</code> and <code>nat</code> respectively.</li>
 </ul>
 <p>We could use this and then define a system to insert the casts like in the
 paper, but I&#39;ll only be dealing with the intermediate language of
@@ -302,34 +302,34 @@ we&#39;ll define the cast as well. In the paper this is written as \(\langle \ta
 <p>
 Here is the Adelfa section in its entirety:</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">tm : type.
-ty : type.
-arr : {ty1: ty}{ty2:ty} ty.
-lam : {ty1: ty}{D: {x:tm} tm} tm.
-app : {t1: tm}{t2: tm} tm.
-cast : {ty1: ty}{t1: tm} tm.
-
-unit : ty.
-dyn : ty.
-nat : ty.
-empty : tm.
-z : tm.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>tm : type.
+</span></span><span style="display:flex;"><span>ty : type.
+</span></span><span style="display:flex;"><span>arr : {ty1: ty}{ty2:ty} ty.
+</span></span><span style="display:flex;"><span>lam : {ty1: ty}{D: {x:tm} tm} tm.
+</span></span><span style="display:flex;"><span>app : {t1: tm}{t2: tm} tm.
+</span></span><span style="display:flex;"><span>cast : {ty1: ty}{t1: tm} tm.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>unit : ty.
+</span></span><span style="display:flex;"><span>dyn : ty.
+</span></span><span style="display:flex;"><span>nat : ty.
+</span></span><span style="display:flex;"><span>empty : tm.
+</span></span><span style="display:flex;"><span>z : tm.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -372,28 +372,28 @@ accepts two types, then we will define each rule based on the input types. Any
 conditions that need to be met by the rule can be realized through some
 derivation as seen in the <code>consis-fun</code> rule.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">consis : {ty1: ty} {ty2: ty} type.
-consis-refl: {ty1 : ty} consis ty1 ty1.
-consis-dyn-r : {ty1 : ty} consis ty1 dyn.
-consis-dyn-l : {ty1 : ty} consis dyn ty1.
-consis-fun : {sigma1 : ty}{sigma2 : ty}
-             {tau1 : ty}{tau2 : ty}
-             {D1: consis sig1 tau1}
-             {D2: consis sig2 tau2}
-             consis (arr sig1 sig2) (arr tau1 tau2).</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>consis : {ty1: ty} {ty2: ty} type.
+</span></span><span style="display:flex;"><span>consis-refl: {ty1 : ty} consis ty1 ty1.
+</span></span><span style="display:flex;"><span>consis-dyn-r : {ty1 : ty} consis ty1 dyn.
+</span></span><span style="display:flex;"><span>consis-dyn-l : {ty1 : ty} consis dyn ty1.
+</span></span><span style="display:flex;"><span>consis-fun : {sigma1 : ty}{sigma2 : ty}
+</span></span><span style="display:flex;"><span>             {tau1 : ty}{tau2 : ty}
+</span></span><span style="display:flex;"><span>             {D1: consis sig1 tau1}
+</span></span><span style="display:flex;"><span>             {D2: consis sig2 tau2}
+</span></span><span style="display:flex;"><span>             consis (arr sig1 sig2) (arr tau1 tau2).</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -417,20 +417,20 @@ Symmetry
 This arises very naturally from our <code>consis-refl</code> rule. So naturally that to prove
 it is essentially unnecessary. Nevertheless, here is the proof.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem consis-symm : forall t1,
-  {t1: ty} =&gt;
-  exists D1, {D1: consis t1 t1}.
-intros.
-exists consis-refl t1. search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem consis-symm : forall t1,
+</span></span><span style="display:flex;"><span>  {t1: ty} =&gt;
+</span></span><span style="display:flex;"><span>  exists D1, {D1: consis t1 t1}.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>exists consis-refl t1. search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -446,34 +446,34 @@ The only tricky aspect of this proof is applying the inductive hypothesis in the
 case that it is a function type. The other cases are commutative by the \(?\)
 being on one side or having the same type on both.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem consis-comm : forall t1 t2 D1,
-  {D1: consis t1 t2} =&gt;
-  exists D2, {D2: consis t2 t1}.
-induction on 1.
-intros.
-case H1.
-apply IH to H6.
-apply IH to H7.
-exists consis-fun tau1 tau2 sig1 sig2 D2 D1. search.
-exists consis-dyn-l t1. search.
-exists consis-dyn-r t2. search.
-exists consis-refl t2. search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem consis-comm : forall t1 t2 D1,
+</span></span><span style="display:flex;"><span>  {D1: consis t1 t2} =&gt;
+</span></span><span style="display:flex;"><span>  exists D2, {D2: consis t2 t1}.
+</span></span><span style="display:flex;"><span>induction on 1.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1.
+</span></span><span style="display:flex;"><span>apply IH to H6.
+</span></span><span style="display:flex;"><span>apply IH to H7.
+</span></span><span style="display:flex;"><span>exists consis-fun tau1 tau2 sig1 sig2 D2 D1. search.
+</span></span><span style="display:flex;"><span>exists consis-dyn-l t1. search.
+</span></span><span style="display:flex;"><span>exists consis-dyn-r t2. search.
+</span></span><span style="display:flex;"><span>exists consis-refl t2. search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -497,30 +497,30 @@ The transitivity in consistency doesn&#39;t work in the case that \(\tau_{2}\) i
 \(?\) and \(\tau_1 \not\equiv \tau_3\). Hence, why we cannot prove this with
 only <code>unit</code> type constructively.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem consis-not-trans : exists t1 t2 t3,
-  {t1: ty} =&gt; {t2: ty} =&gt; {t3: ty} =&gt;
-  forall D1 D2 D3,
-  {D1: consis t1 t2} /\ {D2: consis t2 t3} =&gt;
-  {D3: consis t1 t3} =&gt; false.
-exists unit.
-exists dyn.
-exists nat.
-intros.
-case H5.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem consis-not-trans : exists t1 t2 t3,
+</span></span><span style="display:flex;"><span>  {t1: ty} =&gt; {t2: ty} =&gt; {t3: ty} =&gt;
+</span></span><span style="display:flex;"><span>  forall D1 D2 D3,
+</span></span><span style="display:flex;"><span>  {D1: consis t1 t2} /\ {D2: consis t2 t3} =&gt;
+</span></span><span style="display:flex;"><span>  {D3: consis t1 t3} =&gt; false.
+</span></span><span style="display:flex;"><span>exists unit.
+</span></span><span style="display:flex;"><span>exists dyn.
+</span></span><span style="display:flex;"><span>exists nat.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H5.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -551,12 +551,12 @@ relation to hold.</p>
 \Gamma \vert \Sigma \vdash e : \tau
 \end{equation}</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of : {t1: tm}{ty1 : ty} type.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>of : {t1: tm}{ty1 : ty} type.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -571,16 +571,16 @@ relation to hold.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of-lam : {t1:{x:tm}tm}{ty1:ty}{ty2:ty}
-         {D:{x:tm}{D&#39;: of x ty1} of (t1 x) ty2}
-         of (lam ty1 ([x] t1 x)) (arr ty1 ty2).</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>of-lam : {t1:{x:tm}tm}{ty1:ty}{ty2:ty}
+</span></span><span style="display:flex;"><span>         {D:{x:tm}{D&#39;: of x ty1} of (t1 x) ty2}
+</span></span><span style="display:flex;"><span>         of (lam ty1 ([x] t1 x)) (arr ty1 ty2).</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -595,18 +595,18 @@ relation to hold.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of-app : {t1: tm}{t2:tm}{ty1: ty}{ty2:ty}
-         {D1: of t1 (arr ty1 ty2)}
-         {D2: of t2 ty1}
-         of (app t1 t2) ty2.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>of-app : {t1: tm}{t2:tm}{ty1: ty}{ty2:ty}
+</span></span><span style="display:flex;"><span>         {D1: of t1 (arr ty1 ty2)}
+</span></span><span style="display:flex;"><span>         {D2: of t2 ty1}
+</span></span><span style="display:flex;"><span>         of (app t1 t2) ty2.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -621,24 +621,24 @@ relation to hold.</p>
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of-cast : {t1: tm}{ty1: ty}{ty2: ty}
-          {D1: of t1 ty2}
-          {D: consis ty1 ty2}
-          of (cast ty2 t1) ty2.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>of-cast : {t1: tm}{ty1: ty}{ty2: ty}
+</span></span><span style="display:flex;"><span>          {D1: of t1 ty2}
+</span></span><span style="display:flex;"><span>          {D: consis ty1 ty2}
+</span></span><span style="display:flex;"><span>          of (cast ty2 t1) ty2.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
 </li>
 </ul>
-<p>In addition the the typing derivations listed in the paper, we have to add ones
+<p>In addition, the the typing derivations listed in the paper, we have to add ones
 for the new terms <code>empty</code> and <code>z</code> that we&#39;ve derived.</p>
 <ul>
 <li>
@@ -650,12 +650,12 @@ for the new terms <code>empty</code> and <code>z</code> that we&#39;ve derived.<
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of-empty : of empty unit.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>of-empty : of empty unit.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -669,12 +669,12 @@ for the new terms <code>empty</code> and <code>z</code> that we&#39;ve derived.<
 }
 \end{equation}</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">of-z : of z nat.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>of-z : of z nat.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -690,17 +690,17 @@ To translate this into Adelfa, we need to account for abstraction capturing a
 variable in the context. Adelfa addresses this problem through a context
 schema. In this instance we define it as <code>Schema c := {T}(x: tm, y: of x T)</code>.</p>
 <p>
-We also don&#39;t have a built in way to determine type equality, we we&#39;ll define
+We also don&#39;t have a built-in way to determine type equality, we we&#39;ll define
 one. It turns out, equality by reflexivity is sufficient for our needs.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">ty-eq : {ty1:ty}{ty2:ty} type.
-ty-eq-refl : {ty1:ty} ty-eq ty1 ty1.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ty-eq : {ty1:ty}{ty2:ty} type.
+</span></span><span style="display:flex;"><span>ty-eq-refl : {ty1:ty} ty-eq ty1 ty1.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -709,24 +709,24 @@ These are not relating directly to gradual typing, but are more properties of
 any typing relation. Firstly, a type in a context is also a type not in a
 context: \(\Gamma \vdash \tau \implies \varnothing \vdash \tau\).</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem ty-independent : ctx G:c, forall T,
-  {G |- T: ty} =&gt; {T: ty}.
-induction on 1.
-intros.
-case H1. search. search. search.
-apply IH to H2.
-apply IH to H3. search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem ty-independent : ctx G:c, forall T,
+</span></span><span style="display:flex;"><span>  {G |- T: ty} =&gt; {T: ty}.
+</span></span><span style="display:flex;"><span>induction on 1.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1. search. search. search.
+</span></span><span style="display:flex;"><span>apply IH to H2.
+</span></span><span style="display:flex;"><span>apply IH to H3. search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -734,22 +734,22 @@ apply IH to H3. search.</code></pre></td></tr></table>
 Secondly, type equality also doesn&#39;t depend on a context: \(\Gamma \vdash \tau
 = \tau^{\prime} \implies \varnothing \vdash \tau = \tau^{\prime}\).</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem eq-independent : ctx G:c, forall t1 t2 D1,
-  {G |- D1: ty-eq t1 t2} =&gt; {D1: ty-eq t1 t2}.
-intros.
-case H1.
-apply ty-independent to H2.
-search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem eq-independent : ctx G:c, forall t1 t2 D1,
+</span></span><span style="display:flex;"><span>  {G |- D1: ty-eq t1 t2} =&gt; {D1: ty-eq t1 t2}.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1.
+</span></span><span style="display:flex;"><span>apply ty-independent to H2.
+</span></span><span style="display:flex;"><span>search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -771,52 +771,52 @@ Let&#39;s look at Lemma 2.</p>
 <p>
 We then translate this into Adelfa as such</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem ty-uniq-lem : ctx G:c, forall E t1 t2 D1 D2,
-  {G |- t1: ty} =&gt; {G |- t2: ty} =&gt;
-  {G |- D1: of E t1} =&gt; {G |- D2: of E t2} =&gt;
-  exists D3, {G |- D3: ty-eq t1 t2}.
-induction on 3.
-intros.
-case H3.
-case H4.
-exists ty-eq-refl t2. search.
-case H4.
-apply IH to H7 H11 H8 H12.
-case H13.
-exists ty-eq-refl (arr ty1 t4). search.
-case H4.
-assert {G |- (arr ty1 t1): ty}. search.
-assert {G |- (arr ty2 t2): ty}. search.
-apply IH to H17 H18 H9 H15.
-case H19.
-exists ty-eq-refl t2. search.
-case H4.
-exists ty-eq-refl (t2 n n1). search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem ty-uniq-lem : ctx G:c, forall E t1 t2 D1 D2,
+</span></span><span style="display:flex;"><span>  {G |- t1: ty} =&gt; {G |- t2: ty} =&gt;
+</span></span><span style="display:flex;"><span>  {G |- D1: of E t1} =&gt; {G |- D2: of E t2} =&gt;
+</span></span><span style="display:flex;"><span>  exists D3, {G |- D3: ty-eq t1 t2}.
+</span></span><span style="display:flex;"><span>induction on 3.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H3.
+</span></span><span style="display:flex;"><span>case H4.
+</span></span><span style="display:flex;"><span>exists ty-eq-refl t2. search.
+</span></span><span style="display:flex;"><span>case H4.
+</span></span><span style="display:flex;"><span>apply IH to H7 H11 H8 H12.
+</span></span><span style="display:flex;"><span>case H13.
+</span></span><span style="display:flex;"><span>exists ty-eq-refl (arr ty1 t4). search.
+</span></span><span style="display:flex;"><span>case H4.
+</span></span><span style="display:flex;"><span>assert {G |- (arr ty1 t1): ty}. search.
+</span></span><span style="display:flex;"><span>assert {G |- (arr ty2 t2): ty}. search.
+</span></span><span style="display:flex;"><span>apply IH to H17 H18 H9 H15.
+</span></span><span style="display:flex;"><span>case H19.
+</span></span><span style="display:flex;"><span>exists ty-eq-refl t2. search.
+</span></span><span style="display:flex;"><span>case H4.
+</span></span><span style="display:flex;"><span>exists ty-eq-refl (t2 n n1). search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -830,28 +830,28 @@ Which is:</p>
 So, to take the context off of the consequent, we only have to apply our
 equality independent lemma.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem ty-uniq : ctx G:c, forall E T1 T2 D1 D2,
-  {G |- T1: ty} =&gt; {G |- T2: ty} =&gt;
-  {G |- D1: of E T1} =&gt; {G |- D2: of E T2} =&gt;
-  exists D3, {D3: ty-eq T1 T2}.
-intros.
-apply ty-uniq-lem to H1 H2 H3 H4.
-apply eq-independent to H5.
-exists D3.
-search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem ty-uniq : ctx G:c, forall E T1 T2 D1 D2,
+</span></span><span style="display:flex;"><span>  {G |- T1: ty} =&gt; {G |- T2: ty} =&gt;
+</span></span><span style="display:flex;"><span>  {G |- D1: of E T1} =&gt; {G |- D2: of E T2} =&gt;
+</span></span><span style="display:flex;"><span>  exists D3, {D3: ty-eq T1 T2}.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>apply ty-uniq-lem to H1 H2 H3 H4.
+</span></span><span style="display:flex;"><span>apply eq-independent to H5.
+</span></span><span style="display:flex;"><span>exists D3.
+</span></span><span style="display:flex;"><span>search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -874,20 +874,20 @@ occur until we reach a value. We define values to be:</p>
 <li>Zero: \(0\)</li>
 </ul>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">value : {t1: tm} type.
-value-lam : {ty1: ty}{D: {x:tm} tm} value (lam ty1 ([x] D x)).
-value-cast : {t1: tm}{ty1: ty} value (cast ty1 t1).
-value-empty: value empty.
-value-z : value z.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>value : {t1: tm} type.
+</span></span><span style="display:flex;"><span>value-lam : {ty1: ty}{D: {x:tm} tm} value (lam ty1 ([x] D x)).
+</span></span><span style="display:flex;"><span>value-cast : {t1: tm}{ty1: ty} value (cast ty1 t1).
+</span></span><span style="display:flex;"><span>value-empty: value empty.
+</span></span><span style="display:flex;"><span>value-z : value z.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -910,30 +910,30 @@ solve this issue by using the following order:</p>
 </ol>
 <p>These are captured in the following definitions:</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">step : {t1: tm}{t2: tm} type.
-step-app-1 : {E1: tm}{E2: tm}{E1&#39;: tm}{D: step E1 E1&#39;}
-             step (app E1 E2) (app E1&#39; E2).
-step-app-2 : {E1: tm}{E2: tm}{E2&#39;: tm}{D1: step E2 E2&#39;}
-             {D2: value E1}
-             step (app E1 E2) (app E1 E2&#39;).
-step-app-beta : {E: {x:tm} tm}{T: ty}{E2:tm}{D1:value E2}
-                step (app (lam T ([x] E x)) E2) (E E2).
-step-app-cast: {E1: tm}{E2: tm}{ty1: ty}{ty2: ty}
-                step (app (cast (arr ty1 ty2) E1) E2) (app E1 E2).</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>step : {t1: tm}{t2: tm} type.
+</span></span><span style="display:flex;"><span>step-app-1 : {E1: tm}{E2: tm}{E1&#39;: tm}{D: step E1 E1&#39;}
+</span></span><span style="display:flex;"><span>             step (app E1 E2) (app E1&#39; E2).
+</span></span><span style="display:flex;"><span>step-app-2 : {E1: tm}{E2: tm}{E2&#39;: tm}{D1: step E2 E2&#39;}
+</span></span><span style="display:flex;"><span>             {D2: value E1}
+</span></span><span style="display:flex;"><span>             step (app E1 E2) (app E1 E2&#39;).
+</span></span><span style="display:flex;"><span>step-app-beta : {E: {x:tm} tm}{T: ty}{E2:tm}{D1:value E2}
+</span></span><span style="display:flex;"><span>                step (app (lam T ([x] E x)) E2) (E E2).
+</span></span><span style="display:flex;"><span>step-app-cast: {E1: tm}{E2: tm}{ty1: ty}{ty2: ty}
+</span></span><span style="display:flex;"><span>                step (app (cast (arr ty1 ty2) E1) E2) (app E1 E2).</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -944,26 +944,26 @@ we defined <code>step</code> will come in handy when we move onto proving progre
 Before we move onto preservation, let&#39;s prove a corollary that states values
 cannot take any more steps.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem value-no-red : forall E V E&#39; D2,
- {V: value E} =&gt; {D2: step E E&#39;} =&gt; false.
-intros.
-case H1.
-case H2.
-case H2.
-case H2.
-case H2.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem value-no-red : forall E V E&#39; D2,
+</span></span><span style="display:flex;"><span> {V: value E} =&gt; {D2: step E E&#39;} =&gt; false.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>case H2.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -972,46 +972,46 @@ This isn&#39;t necessary for proving preservation, but is a nice way to confirm 
 internal idea of what a <code>value</code> is. Looping back to preservation, we can prove
 this without too much difficulty.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem preserv : forall E E&#39; T D1 D2,
-  {D1: step E E&#39;} =&gt;
-  {D2: of E T} =&gt;
-  exists E, {E : of E&#39; T}.
-induction on 1.
-intros.
-case H1.
-case H2.
-case H11.
-inst H16 with n2 = E2.
-inst H17 with n3 = D6.
-exists D7 E2 D6. search.
-case H2.
-apply IH to H6 H13.
-exists of-app E1 E2&#39; ty1 T D5 E. search.
-case H2.
-apply IH to H6 H11.
-exists of-app E1&#39; E2 ty1 T E D4. search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem preserv : forall E E&#39; T D1 D2,
+</span></span><span style="display:flex;"><span>  {D1: step E E&#39;} =&gt;
+</span></span><span style="display:flex;"><span>  {D2: of E T} =&gt;
+</span></span><span style="display:flex;"><span>  exists E, {E : of E&#39; T}.
+</span></span><span style="display:flex;"><span>induction on 1.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>case H11.
+</span></span><span style="display:flex;"><span>inst H16 with n2 = E2.
+</span></span><span style="display:flex;"><span>inst H17 with n3 = D6.
+</span></span><span style="display:flex;"><span>exists D7 E2 D6. search.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>apply IH to H6 H13.
+</span></span><span style="display:flex;"><span>exists of-app E1 E2&#39; ty1 T D5 E. search.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>apply IH to H6 H11.
+</span></span><span style="display:flex;"><span>exists of-app E1&#39; E2 ty1 T E D4. search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -1037,134 +1037,134 @@ can be expanded into a lambda \(e_1 : \tau_1 \rightarrow \tau_2 \Rightarrow
 (\lambda x : \tau_1 . e_1^{\prime}) : \tau_2\). Any other form for \(e_1\) would
 not lead to a well typed term. We want to list all canonical forms:</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">canonical : {t1 : tm} {ty1: ty} type.
-canonical-lam : {t1: {x:tm} tm} {ty1: ty} {ty2: ty}
-                canonical (lam ty1 ([x] t1 x)) (arr ty1 ty2).
-canonical-empty : canonical empty unit.
-canonical-z : canonical z nat.
-canonical-cast : {t1: tm} {ty1 : ty}
-                 canonical (cast ty1 t1) ty1.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>canonical : {t1 : tm} {ty1: ty} type.
+</span></span><span style="display:flex;"><span>canonical-lam : {t1: {x:tm} tm} {ty1: ty} {ty2: ty}
+</span></span><span style="display:flex;"><span>                canonical (lam ty1 ([x] t1 x)) (arr ty1 ty2).
+</span></span><span style="display:flex;"><span>canonical-empty : canonical empty unit.
+</span></span><span style="display:flex;"><span>canonical-z : canonical z nat.
+</span></span><span style="display:flex;"><span>canonical-cast : {t1: tm} {ty1 : ty}
+</span></span><span style="display:flex;"><span>                 canonical (cast ty1 t1) ty1.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
 <p>
 And formulate a theorem about well typed values being canonical:</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem canonical : forall E T D1 D2,
-  {D1: of E T} =&gt;
-  {D2: value E} =&gt; exists D3, {D3: canonical E T}.
-intros.
-case H1.
-exists canonical-z. search.
-exists canonical-empty. search.
-case H2.
-exists canonical-cast t1 T. search.
-exists canonical-lam t1 ty1 ty2. search.
-case H2.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem canonical : forall E T D1 D2,
+</span></span><span style="display:flex;"><span>  {D1: of E T} =&gt;
+</span></span><span style="display:flex;"><span>  {D2: value E} =&gt; exists D3, {D3: canonical E T}.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1.
+</span></span><span style="display:flex;"><span>exists canonical-z. search.
+</span></span><span style="display:flex;"><span>exists canonical-empty. search.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>exists canonical-cast t1 T. search.
+</span></span><span style="display:flex;"><span>exists canonical-lam t1 ty1 ty2. search.
+</span></span><span style="display:flex;"><span>case H2.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
 <p>
 We&#39;re now able to prove progress.</p>
 <div class="src src-text">
-<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">Theorem progress : forall E D1 ty1,
-  {E: tm} =&gt; {D1: of E ty1} =&gt;
-  (exists E&#39; D2, {D2: step E E&#39;} /\ {E&#39; : tm}) \/ (exists D3, {D3: value E}).
-induction on 1.
-intros.
-case H1.
-right.
-exists value-z. search.
-right.
-exists value-empty. search.
-case H2.
-right.
-exists value-cast t1 ty2. search.
-case H2.
-apply IH to H3 H9. case H11. case H11.
-left.
-exists app E&#39; t2.
-exists step-app-1 t1 t2 E&#39; D1.
-split. search. search.
-apply IH to H4 H10. case H12. case H12.
-left.
-exists app t1 E&#39;.
-exists step-app-2 t1 t2 E&#39; D4 D1.
-split. search. search.
-left.
-apply canonical to H9 H11. case H13. case H9.
-exists app t3 t2.
-exists step-app-cast t3 t2 ty2 ty1. split. search. search.
-inst H14 with n = t2.
-exists t3 t2.
-exists step-app-beta t3 ty2 t2 D4. split. search. search.
-right.
-exists value-lam ty2 D.
-search.</code></pre></td></tr></table>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Theorem progress : forall E D1 ty1,
+</span></span><span style="display:flex;"><span>  {E: tm} =&gt; {D1: of E ty1} =&gt;
+</span></span><span style="display:flex;"><span>  (exists E&#39; D2, {D2: step E E&#39;} /\ {E&#39; : tm}) \/ (exists D3, {D3: value E}).
+</span></span><span style="display:flex;"><span>induction on 1.
+</span></span><span style="display:flex;"><span>intros.
+</span></span><span style="display:flex;"><span>case H1.
+</span></span><span style="display:flex;"><span>right.
+</span></span><span style="display:flex;"><span>exists value-z. search.
+</span></span><span style="display:flex;"><span>right.
+</span></span><span style="display:flex;"><span>exists value-empty. search.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>right.
+</span></span><span style="display:flex;"><span>exists value-cast t1 ty2. search.
+</span></span><span style="display:flex;"><span>case H2.
+</span></span><span style="display:flex;"><span>apply IH to H3 H9. case H11. case H11.
+</span></span><span style="display:flex;"><span>left.
+</span></span><span style="display:flex;"><span>exists app E&#39; t2.
+</span></span><span style="display:flex;"><span>exists step-app-1 t1 t2 E&#39; D1.
+</span></span><span style="display:flex;"><span>split. search. search.
+</span></span><span style="display:flex;"><span>apply IH to H4 H10. case H12. case H12.
+</span></span><span style="display:flex;"><span>left.
+</span></span><span style="display:flex;"><span>exists app t1 E&#39;.
+</span></span><span style="display:flex;"><span>exists step-app-2 t1 t2 E&#39; D4 D1.
+</span></span><span style="display:flex;"><span>split. search. search.
+</span></span><span style="display:flex;"><span>left.
+</span></span><span style="display:flex;"><span>apply canonical to H9 H11. case H13. case H9.
+</span></span><span style="display:flex;"><span>exists app t3 t2.
+</span></span><span style="display:flex;"><span>exists step-app-cast t3 t2 ty2 ty1. split. search. search.
+</span></span><span style="display:flex;"><span>inst H14 with n = t2.
+</span></span><span style="display:flex;"><span>exists t3 t2.
+</span></span><span style="display:flex;"><span>exists step-app-beta t3 ty2 t2 D4. split. search. search.
+</span></span><span style="display:flex;"><span>right.
+</span></span><span style="display:flex;"><span>exists value-lam ty2 D.
+</span></span><span style="display:flex;"><span>search.</span></span></code></pre></td></tr></table>
 </div>
 </div>
 </div>
@@ -1243,7 +1243,7 @@ search.</code></pre></td></tr></table>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fgradual-typing-adelfa%2f&name=Gradual%20Typing%20in%20Adelfa&description=Introduction%20%20%20Gradual%20Typing%20is%20a%20type%20system%20that%20marries%20static%20and%20dynamic%20typing.%20It%20was%20developed%20in%202006%20by%20Jeremy%20Siek%20and%20Walid%20Taha.%20Dynamic%20type%20systems%20offer%20complete%20flexibility%20and%20agility%3b%20whereas%20static%20typing%20offers%20type-related%20error%20detection%20earlier.%20Gradual%20typing%20allows%20us%20to%20declare%20types%20as%20dynamic%20and%20also%20specify%20types.%20Moreover%2c%20we%20can%20coerce%20types%20to%20and%20from%20dynamic%20throughout%20its%20execution.%0a%20I%20won%26%2339%3bt%20be%20going%20over%20Gradual%20Typing%20too%20closely%2c%20because%20Professor%20Siek%20has%20his%20very%20own%20excellent%20blog%20you%20should%20give%20a%20read%20if%20you%26%2339%3bre%20interested." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fgradual-typing-adelfa%2f&name=Gradual%20Typing%20in%20Adelfa&description=Introduction%20%20%20Gradual%20Typing%20is%20a%20type%20system%20that%20marries%20static%20and%20dynamic%20typing.%20It%20was%20developed%20in%202006%20by%20Jeremy%20Siek%20and%20Walid%20Taha.%20Dynamic%20type%20systems%20offer%20complete%20flexibility%20and%20agility%3b%20whereas%20static%20typing%20offers%20type-related%20error%20detection%20earlier.%20Gradual%20typing%20allows%20us%20to%20declare%20types%20as%20dynamic%20and%20also%20specify%20types.%20Moreover%2c%20we%20can%20coerce%20types%20to%20and%20from%20dynamic%20throughout%20its%20execution.%0a%20I%20won%26%2339%3bt%20be%20going%20over%20Gradual%20Typing%20too%20closely%2c%20because%20Professor%20Siek%20has%20his%20own%20blog%20you%20should%20give%20a%20read%20if%20you%26%2339%3bre%20interested." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>

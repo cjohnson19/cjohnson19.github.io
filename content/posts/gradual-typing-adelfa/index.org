@@ -13,16 +13,16 @@ and also specify types. Moreover, we can coerce types to and from ~dynamic~
 throughout its execution.
 
 I won't be going over Gradual Typing too closely, because Professor Siek has [[https://siek.blogspot.com/][his
-very own excellent blog]] you should give a read if you're interested. This blog
-post will focus more on mechanizing some properties of gradual typing in [[http://sparrow.cs.umn.edu/adelfa/index.html][Adelfa]],
-a system I'm currently using as a graduate student. I plan showing more about
-Adelfa in a later post, so I'll just be showing a general thought process
-involved in the construction of these theorems. I'll focus on [[http://scheme2006.cs.uchicago.edu/13-siek.pdf][Gradual Typing for
-Functional Languages]] for this post.
+own blog]] you should give a read if you're interested. This blog post will focus
+more on mechanizing some properties of gradual typing in [[http://sparrow.cs.umn.edu/adelfa/index.html][Adelfa]], a system I'm
+currently using as a graduate student. I plan showing more about Adelfa in a
+later post, so I'll just be showing a general thought process involved in the
+construction of these theorems. I'll focus on [[http://scheme2006.cs.uchicago.edu/13-siek.pdf][Gradual Typing for Functional
+Languages]] for this post.
 
 * Syntax of The Language
 
-We elide variables, ground types, constants, etc since they are not of interest
+We elide variables, ground types, constants, etc. since they are not of interest
 in any theorems we will mechanize. The paper describes the syntax of \(e \in
 \lambda^{?}_{\rightarrow}\) in section 1. I'll show the paper's description as
 one column and the formulation in Adelfa in the other.
@@ -40,7 +40,7 @@ We also define a few extra items in Adelfa:
 - ~unit~ and ~nat~, essentially placeholders to represent more meaningful types in
   an actual system.
 - ~dyn~ which will represent the \(?\) / \(\star\) type, standing for dynamic.
-- ~empty~ and ~z~ which will be a terms we can use of type ~unit~ and ~nat~ respectively.
+- ~empty~ and ~z~ which will be terms we can use of type ~unit~ and ~nat~ respectively.
 
 We could use this and then define a system to insert the casts like in the
 paper, but I'll only be dealing with the intermediate language of
@@ -241,7 +241,7 @@ of-cast : {t1: tm}{ty1: ty}{ty2: ty}
             of (cast ty2 t1) ty2.
   #+end_src
 
-In addition the the typing derivations listed in the paper, we have to add ones
+In addition, the the typing derivations listed in the paper, we have to add ones
 for the new terms ~empty~ and ~z~ that we've derived.
 
 - Empty
@@ -271,7 +271,7 @@ To translate this into Adelfa, we need to account for abstraction capturing a
 variable in the context. Adelfa addresses this problem through a context
 schema. In this instance we define it as ~Schema c := {T}(x: tm, y: of x T)~.
 
-We also don't have a built in way to determine type equality, we we'll define
+We also don't have a built-in way to determine type equality, we we'll define
 one. It turns out, equality by reflexivity is sufficient for our needs.
 
 #+begin_src
