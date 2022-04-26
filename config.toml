@@ -22,6 +22,10 @@ theme = "cactus"
     link = "https://github.com/cjohnson19"
 
 [[params.social]]
+    name = "mastodon"
+    link = "https://mstdn.social/@cjohnson"
+
+[[params.social]]
     name = "email"
     link = "joh13266@umn.edu"
 
