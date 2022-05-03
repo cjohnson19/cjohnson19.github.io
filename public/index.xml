@@ -32,7 +32,7 @@
       <pubDate>Mon, 06 Dec 2021 20:03:32 -0600</pubDate>
       
       <guid>https://chasejohnson.tech/posts/polymorphism/</guid>
-      <description>Introduction  Polymorphism is often seen as a characteristic unique to Object Oriented Programming (OOP) or at least one that it thrives in. Many have only seen polymorphism through the lens of an object oriented language and have yet to see other approaches to defining common interfaces.
+      <description>Introduction  Polymorphism is often seen as a characteristic unique to Object-Oriented Programming (OOP) or at least one that it thrives in. Many have only seen polymorphism through the lens of an object-oriented language and have yet to see other approaches to defining common interfaces.
  I&amp;#39;ll be using Java and Standard ML (SML) to demonstrate the various types of polymorphism. Java is unique in its pervasiveness throughout professional developers and its usage as a language to teach OOP.</description>
     </item>
     

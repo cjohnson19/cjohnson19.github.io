@@ -23,7 +23,7 @@ theme = "cactus"
 
 [[params.social]]
     name = "mastodon"
-    link = "https://mstdn.social/@cjohnson"
+    link = "https://types.pl/@cjohnson"
 
 [[params.social]]
     name = "email"
