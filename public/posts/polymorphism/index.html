@@ -16,18 +16,17 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Polymorphism" />
-<meta property="og:description" content="Introduction  Polymorphism is often seen as a characteristic unique to Object Oriented Programming (OOP) or at least one that it thrives in. Many have only seen polymorphism through the lens of an object oriented language and have yet to see other approaches to defining common interfaces.
- I&#39;ll be using Java and Standard ML (SML) to demonstrate the various types of polymorphism. Java is unique in its pervasiveness throughout professional developers and its usage as a language to teach OOP." />
+<meta property="og:description" content="Introduction Polymorphism is often seen as a characteristic unique to Object Oriented Programming (OOP) or at least one that it thrives in. Many have only seen polymorphism through the lens of an object oriented language and have yet to see other approaches to defining common interfaces.
+I&#39;ll be using Java and Standard ML (SML) to demonstrate the various types of polymorphism. Java is unique in its pervasiveness throughout professional developers and its usage as a language to teach OOP." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chasejohnson.tech/posts/polymorphism/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-06T20:03:32-06:00" />
 <meta property="article:modified_time" content="2021-12-06T20:03:32-06:00" />
 
-
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Polymorphism"/>
-<meta name="twitter:description" content="Introduction  Polymorphism is often seen as a characteristic unique to Object Oriented Programming (OOP) or at least one that it thrives in. Many have only seen polymorphism through the lens of an object oriented language and have yet to see other approaches to defining common interfaces.
- I&#39;ll be using Java and Standard ML (SML) to demonstrate the various types of polymorphism. Java is unique in its pervasiveness throughout professional developers and its usage as a language to teach OOP."/>
+<meta name="twitter:description" content="Introduction Polymorphism is often seen as a characteristic unique to Object Oriented Programming (OOP) or at least one that it thrives in. Many have only seen polymorphism through the lens of an object oriented language and have yet to see other approaches to defining common interfaces.
+I&#39;ll be using Java and Standard ML (SML) to demonstrate the various types of polymorphism. Java is unique in its pervasiveness throughout professional developers and its usage as a language to teach OOP."/>
 
   
   
@@ -146,7 +145,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fpolymorphism%2f&name=Polymorphism&description=Introduction%20%20Polymorphism%20is%20often%20seen%20as%20a%20characteristic%20unique%20to%20Object%20Oriented%20Programming%20%28OOP%29%20or%20at%20least%20one%20that%20it%20thrives%20in.%20Many%20have%20only%20seen%20polymorphism%20through%20the%20lens%20of%20an%20object%20oriented%20language%20and%20have%20yet%20to%20see%20other%20approaches%20to%20defining%20common%20interfaces.%0a%20I%26%2339%3bll%20be%20using%20Java%20and%20Standard%20ML%20%28SML%29%20to%20demonstrate%20the%20various%20types%20of%20polymorphism.%20Java%20is%20unique%20in%20its%20pervasiveness%20throughout%20professional%20developers%20and%20its%20usage%20as%20a%20language%20to%20teach%20OOP." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fpolymorphism%2f&name=Polymorphism&description=Introduction%20Polymorphism%20is%20often%20seen%20as%20a%20characteristic%20unique%20to%20Object%20Oriented%20Programming%20%28OOP%29%20or%20at%20least%20one%20that%20it%20thrives%20in.%20Many%20have%20only%20seen%20polymorphism%20through%20the%20lens%20of%20an%20object%20oriented%20language%20and%20have%20yet%20to%20see%20other%20approaches%20to%20defining%20common%20interfaces.%0aI%26%2339%3bll%20be%20using%20Java%20and%20Standard%20ML%20%28SML%29%20to%20demonstrate%20the%20various%20types%20of%20polymorphism.%20Java%20is%20unique%20in%20its%20pervasiveness%20throughout%20professional%20developers%20and%20its%20usage%20as%20a%20language%20to%20teach%20OOP." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -601,9 +600,9 @@ Java
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span><span style="color:#ff79c6">;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> cmp <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">.</span><span style="color:#50fa7b">compareTo</span><span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">value</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">true</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">&lt;</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> contains<span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">left</span><span style="color:#ff79c6">,</span> value<span style="color:#ff79c6">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> contains<span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">right</span><span style="color:#ff79c6">,</span> value<span style="color:#ff79c6">);</span>
@@ -618,9 +617,9 @@ Java
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">this</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">root</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> TreeNode<span style="color:#ff79c6">&lt;&gt;(</span>value<span style="color:#ff79c6">);</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">int</span> cmp <span style="color:#ff79c6">=</span> value<span style="color:#ff79c6">.</span><span style="color:#50fa7b">compareTo</span><span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">value</span><span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">==</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span><span style="color:#ff79c6">;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">&lt;</span> 0<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>cmp <span style="color:#ff79c6">&lt;</span> <span style="color:#bd93f9">0</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">left</span> <span style="color:#ff79c6">==</span> <span style="color:#ff79c6">null</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>        node<span style="color:#ff79c6">.</span><span style="color:#50fa7b">left</span> <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> TreeNode<span style="color:#ff79c6">&lt;&gt;(</span>value<span style="color:#ff79c6">);</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
@@ -689,9 +688,9 @@ this class too.</p>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 <pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span><span style="color:#ff79c6">(</span>String<span style="color:#ff79c6">[]</span> args<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>    BinarySearchTree<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;</span> bst <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> BinarySearchTree<span style="color:#ff79c6">&lt;&gt;();</span>
-</span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>1<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>5<span style="color:#ff79c6">);</span>
-</span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span>100<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">insert</span><span style="color:#ff79c6">(</span><span style="color:#bd93f9">100</span><span style="color:#ff79c6">);</span>
 </span></span><span style="display:flex;"><span>    bst<span style="color:#ff79c6">.</span><span style="color:#50fa7b">inorder</span><span style="color:#ff79c6">();</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span></span></span></code></pre></td></tr></table>
 </div>
@@ -858,7 +857,7 @@ And now we can use our new binary search tree.</p>
 </span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ocaml" data-lang="ocaml"><span style="display:flex;"><span><span style="color:#ff79c6">val</span> my_int_btree <span style="color:#ff79c6">=</span> List.foldl IntBST.insert IntBST.empty <span style="color:#ff79c6">[</span>1<span style="color:#ff79c6">,</span>5<span style="color:#ff79c6">,</span>100<span style="color:#ff79c6">]</span>
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ocaml" data-lang="ocaml"><span style="display:flex;"><span><span style="color:#ff79c6">val</span> my_int_btree <span style="color:#ff79c6">=</span> List.foldl IntBST.insert IntBST.empty <span style="color:#ff79c6">[</span><span style="color:#bd93f9">1</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">5</span><span style="color:#ff79c6">,</span><span style="color:#bd93f9">100</span><span style="color:#ff79c6">]</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">val</span> () <span style="color:#ff79c6">=</span> IntBST.inorder my_int_btree</span></span></code></pre></td></tr></table>
 </div>
 </div>
@@ -945,7 +944,7 @@ And now we can use our new binary search tree.</p>
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fpolymorphism%2f&name=Polymorphism&description=Introduction%20%20Polymorphism%20is%20often%20seen%20as%20a%20characteristic%20unique%20to%20Object%20Oriented%20Programming%20%28OOP%29%20or%20at%20least%20one%20that%20it%20thrives%20in.%20Many%20have%20only%20seen%20polymorphism%20through%20the%20lens%20of%20an%20object%20oriented%20language%20and%20have%20yet%20to%20see%20other%20approaches%20to%20defining%20common%20interfaces.%0a%20I%26%2339%3bll%20be%20using%20Java%20and%20Standard%20ML%20%28SML%29%20to%20demonstrate%20the%20various%20types%20of%20polymorphism.%20Java%20is%20unique%20in%20its%20pervasiveness%20throughout%20professional%20developers%20and%20its%20usage%20as%20a%20language%20to%20teach%20OOP." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fchasejohnson.tech%2fposts%2fpolymorphism%2f&name=Polymorphism&description=Introduction%20Polymorphism%20is%20often%20seen%20as%20a%20characteristic%20unique%20to%20Object%20Oriented%20Programming%20%28OOP%29%20or%20at%20least%20one%20that%20it%20thrives%20in.%20Many%20have%20only%20seen%20polymorphism%20through%20the%20lens%20of%20an%20object%20oriented%20language%20and%20have%20yet%20to%20see%20other%20approaches%20to%20defining%20common%20interfaces.%0aI%26%2339%3bll%20be%20using%20Java%20and%20Standard%20ML%20%28SML%29%20to%20demonstrate%20the%20various%20types%20of%20polymorphism.%20Java%20is%20unique%20in%20its%20pervasiveness%20throughout%20professional%20developers%20and%20its%20usage%20as%20a%20language%20to%20teach%20OOP." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
@@ -975,7 +974,7 @@ And now we can use our new binary search tree.</p>
 
   <footer id="footer">
   <div class="footer-left">
-    Copyright  &copy; 2022  Chase Johnson 
+    Copyright  &copy; 2023  Chase Johnson 
   </div>
   <div class="footer-right">
     <nav>
