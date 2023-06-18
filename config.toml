@@ -1,4 +1,4 @@
-baseURL = 'https://chasejohnson.tech/'
+baseURL = 'https://chasej.dev/'
 languageCode = 'en-us'
 title = 'Chase Johnson'
 theme = "cactus"
@@ -27,7 +27,7 @@ theme = "cactus"
 
 [[params.social]]
     name = "email"
-    link = "info@chasejohnson.tech"
+    link = "mail@chasej.dev"
 
 [[params.social]]
     name = "linkedin"

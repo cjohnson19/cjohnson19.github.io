@@ -2,9 +2,9 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Chase Johnson</title>
-    <link>https://chasejohnson.tech/categories/</link>
+    <link>https://chasej.dev/categories/</link>
     <description>Recent content in Categories on Chase Johnson</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://chasejohnson.tech/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://chasej.dev/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
