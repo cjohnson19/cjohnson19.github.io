@@ -82,7 +82,7 @@ two types. Here are all the rules for consistency as given in the paper:
   ? \sim \tau
   \end{equation}
 - CFun
-  \begin{equation}\label{cfun}
+  \begin{equation}
   \frac{
       \sigma_{1} \sim \tau_{1} \quad \sigma_{2} \sim \tau_{2}
   }{
